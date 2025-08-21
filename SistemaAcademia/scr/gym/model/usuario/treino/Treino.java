@@ -57,8 +57,8 @@ public class Treino {
         System.out.println("Duração em minutos: " + duracaoMinutos + "min");
         for(TreinoExercicio t : listaExercicios){
             System.out.println("- " + t.getExercicio().getNome() 
-                                + "| séries: " + t.getNumSeries() 
-                                + "| Número de repetições: " + t.getNumRepeticoes());
+                                + " | séries: " + t.getNumSeries() 
+                                + " | Número de repetições: " + t.getNumRepeticoes());
         }
     }
 

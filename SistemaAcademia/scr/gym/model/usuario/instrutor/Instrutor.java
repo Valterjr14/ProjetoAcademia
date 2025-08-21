@@ -12,7 +12,7 @@ public class Instrutor extends Usuario {
     private String especialidade;
     private List<Aluno> alunos;
 
-    public Instrutor(String nome, String email, String senha, String especialidade, Aluno alunos) {
+    public Instrutor(String nome, String email, String senha, String especialidade) {
         super(nome, email, senha);
         this.especialidade = especialidade;
         this.alunos = new ArrayList<>();
