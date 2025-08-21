@@ -1,6 +1,7 @@
 package scr.gym;
 
 import scr.gym.model.usuario.aluno.Aluno;
+import scr.gym.model.usuario.avaliacaofisica.AvaliacaoFisica;
 import scr.gym.model.usuario.instrutor.Instrutor;
 import scr.gym.model.usuario.plano.Plano;
 import scr.gym.model.usuario.treino.Treino;
@@ -10,11 +11,18 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        /* Aluno usuario = new Aluno("Pedro", "pedro@example.com", "senha123", "12345");
-        Instrutor instrutor = new Instrutor("Maria", "maria@example.com", "senha456", "Musculação");
+        AvaliacaoFisica avaliacaoFisica = null;
         Treino treino = new Treino("Treino para hipertrofia", "Iniciante", 60);
         Plano plano = new Plano("Premium", 500.0, 12);
-        System.out.println("Nome: " + usuario.getNome());
+        Aluno usuario = new Aluno("Pedro", "pedro@example.com", "senha123", "12345", 68.0, 1.75, plano, treino, avaliacaoFisica);
+        Instrutor instrutor = new Instrutor("Maria", "maria@example.com", "senha456", "Musculação", usuario);
+        treino.adicionarExercicio(new Exercicio("Supino"), 10, 4);
+        treino.adicionarExercicio(new Exercicio("Agachamento"), 10, 4);
+        instrutor.criarTreino(usuario, treino);
+        treino.exibirTreino();
+        
+        
+        /*System.out.println("Nome: " + usuario.getNome());
         System.out.println("Email: " + usuario.getEmail());
         System.out.println("Senha: " + usuario.getSenha());
         System.out.println("Matrícula: " + usuario.getMatricula());
@@ -29,7 +37,7 @@ public class Main {
         System.out.println("Nivel de dificuldade do treino: " + treino.getNivelDificuldade());
         System.out.println("Deuração em minutos do treino: " + treino.getDuracaoMinutos());*/
 
-        Scanner sc = new Scanner(System.in);
+        /*Scanner sc = new Scanner(System.in);
 
         int opcao;
         do {
@@ -56,6 +64,6 @@ public class Main {
 
         } while(opcao != 0);
 
-        sc.close();
+        sc.close();*/
     }
 }

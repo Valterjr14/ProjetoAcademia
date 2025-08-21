@@ -16,7 +16,7 @@ public class Aluno extends Usuario {
     private List<Treino> treinos;
     private List<AvaliacaoFisica> avaliacoes;
 
-    public Aluno(String nome, String email, String senha, String matricula, double peso, double altura, Treino treinos, AvaliacaoFisica avaliacoes) {
+    public Aluno(String nome, String email, String senha, String matricula, double peso, double altura, Plano plano, Treino treinos, AvaliacaoFisica avaliacoes) {
         super(nome, email, senha);
         this.matricula = matricula;
         this.peso = peso;

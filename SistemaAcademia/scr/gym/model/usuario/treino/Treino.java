@@ -1,18 +1,21 @@
 package scr.gym.model.usuario.treino;
 
 import java.util.List;
+
+import scr.gym.model.usuario.exercicio.Exercicio;
+
 import java.util.ArrayList;
 
 public class Treino {
     private String descricaoTreino, nivelDificuldade;
     private int duracaoMinutos;
-    //private List<> listaExercicios;
+    private List<TreinoExercicio> listaExercicios;
 
     public Treino(String descricaoTreino, String nivelDificuldade, int duracaoMinutos){
         this.descricaoTreino = descricaoTreino;
         this.nivelDificuldade = nivelDificuldade;
         this.duracaoMinutos = duracaoMinutos;
-        //this.listaExercicios = new ArrayList<>();
+        this.listaExercicios = new ArrayList<>();
     }
 
     public String getDescricaoTreino(){
@@ -39,11 +42,27 @@ public class Treino {
         this.duracaoMinutos = duracaoMinutos;
     }
 
-    public void adicionarExercicio(){}
-    public void removerExercicio(){}
-    public void exibirTreino(){}
+    public void adicionarExercicio(Exercicio exercicio, int numRepeticoes, int numSeries){
+        TreinoExercicio novoTreino = new TreinoExercicio(exercicio, numRepeticoes, numSeries);
+        listaExercicios.add(novoTreino);
+    }
 
-    /*public List<> getListaExercicios(){
+    public void removerExercicio(TreinoExercicio exercicio){
+        listaExercicios.remove(exercicio);
+    }
+
+    public void exibirTreino(){
+        System.out.println("Treino: " + descricaoTreino);
+        System.out.println("Nivel Dificuldade: " + nivelDificuldade);
+        System.out.println("Duração em minutos: " + duracaoMinutos + "min");
+        for(TreinoExercicio t : listaExercicios){
+            System.out.println("- " + t.getExercicio().getNome() 
+                                + "| séries: " + t.getNumSeries() 
+                                + "| Número de repetições: " + t.getNumRepeticoes());
+        }
+    }
+
+    public List<TreinoExercicio> getListaExercicios(){
         return listaExercicios;
-    }*/
+    }
 }
