@@ -33,6 +33,7 @@ public class Main {
             System.out.println("6 - Avaliar Aluno");
             System.out.println("7 - Lista de Treinos");
             System.out.println("8 - Lista de Avaliações");
+            System.out.println("9 - Listar Treinos (de um aluno escolhido)");
             System.out.println("0 - Sair");
             System.out.print("Escolha: ");
             opcao = Integer.parseInt(sc.nextLine());
@@ -137,6 +138,9 @@ public class Main {
                     }
                     treinos.add(novoTreino);
 
+                    Aluno alunoSelecionado = alunos.get(alunoEscolhidoTreino);
+                    alunoSelecionado.adicionarTreino(novoTreino);
+
                     System.out.println("Treino criado com sucesso!");
                     novoTreino.exibirTreino();
                     break;
@@ -195,6 +199,30 @@ public class Main {
                             }
                         }
                     }
+                    break;
+                case 9:
+                    if(alunos.isEmpty()){
+                        System.out.println("Nenhum aluno cadastrado.");
+                        break;
+                    }
+                    System.out.println("Escolha o aluno para ver seu(s) treino(s)");
+                    for(int i = 0; i < alunos.size(); i++){
+                        System.out.println((i + 1) + " - " + alunos.get(i).getNome());
+                    }
+                    int treinoEscolhidoAluno = Integer.parseInt(sc.nextLine());
+                    Aluno alunoSelecionadoTreino = alunos.get(treinoEscolhidoAluno - 1);
+
+                    List<Treino> treinosAluno = alunoSelecionadoTreino.getTreinos();
+                    if(treinosAluno == null || treinosAluno.isEmpty()){
+                        System.out.println("Nenhum treino registrado para esse aluno");
+                    } else {
+                        System.out.println("\n>>> TREINOS DE " + alunoSelecionadoTreino.getNome() + " <<<");
+                        for(int i = 0; i < treinosAluno.size(); i++){
+                            System.out.println((i + 1) + " - " + treinosAluno.get(i).getDescricaoTreino());
+                            treinosAluno.get(i).exibirTreino();
+                        }
+                    }
+                    break;
                 case 0:
                     System.out.println("Saindo...");
                     break;
