@@ -1,0 +1,19 @@
+
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+Q
+!SistemaAcademia/scr/gym/Main.java,5\e\5e221edd90a630db035aa4c344c9fe603cb67801
+f
+6SistemaAcademia/scr/gym/model/usuario/aluno/Aluno.java,d\7\d79fc5806be25c8268c207b431e50e157e96600e
+f
+6SistemaAcademia/scr/gym/model/usuario/plano/Plano.java,a\1\a1d7ccb0954f8013fc9dcfd4975861a9de02eecb
+_
+/SistemaAcademia/scr/gym/model/usuario/exercicio,3\7\37056bb88301d2f6d82400831513ad565a483322
+n
+>SistemaAcademia/scr/gym/model/usuario/exercicio/Exercicio.java,9\5\95e6f83210f521d83bd0c535d18257c71e5e37a0
+C
+SistemaAcademia.iml,0\f\0f637e308b3aecb4830661ce5b8ad44d77b63c43
+b
+2SistemaAcademia/scr/gym/model/usuario/Usuario.java,2\8\280d4a696114f9a5c6689a8cea8a9b5384e9c67d
+z
+JSistemaAcademia/scr/gym/model/usuario/avaliacaofisica/AvaliacaoFisica.java,9\7\976e40090ceb725603866ae092dbe9744a23f3a6
