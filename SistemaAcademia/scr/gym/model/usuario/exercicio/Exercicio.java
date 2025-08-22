@@ -31,6 +31,7 @@ public class Exercicio {
             String nome = sc.nextLine();
             catalogo.add(new Exercicio(nome));
         }
+        sc.close();
         System.out.println("Exercícios adicionados com sucesso!");
     }
 
@@ -47,4 +48,5 @@ public class Exercicio {
     public static ArrayList<Exercicio> getCatalogo(){
         return catalogo;
     }
+    
 }
