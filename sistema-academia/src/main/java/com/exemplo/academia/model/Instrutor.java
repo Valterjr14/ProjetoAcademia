@@ -13,21 +13,19 @@ public class Instrutor extends Usuario {
         this.alunos = new ArrayList<>();
     }
 
-    public void adicionarAluno(Aluno aluno){
+    public void adicionarAluno(Aluno aluno) {
         alunos.add(aluno);
     }
 
-    public void criarTreino(Aluno aluno, Treino treino){
+    public void criarTreino(Aluno aluno, Treino treino) {
         aluno.adicionarTreino(treino);
-        System.out.println("Treino " + treino);
     }
 
-    public void realizarAvaliacao(Aluno aluno, AvaliacaoFisica avaliacao){
+    public void realizarAvaliacao(Aluno aluno, AvaliacaoFisica avaliacao) {
         aluno.adicionarAvaliacao(avaliacao);
-        System.out.println("Avalição registrada com sucesso.");
     }
 
-    public List<Aluno> getAlunos(){
+    public List<Aluno> getAlunos() {
         return alunos;
     }
 
