@@ -4,18 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Aluno extends Usuario {
-    private double peso;
-    private double altura;
     private Plano plano;
-    private String matricula;
+    private String matricula, cpf;
     private List<Treino> treinos;
     private List<AvaliacaoFisica> avaliacoes;
 
-    public Aluno(String nome, String email, String senha, String matricula, double peso, double altura, Plano plano, Treino treinos, AvaliacaoFisica avaliacoes) {
+    public Aluno(String nome, String email, String senha, String matricula, String cpf, Plano plano) {
         super(nome, email, senha);
         this.matricula = matricula;
-        this.peso = peso;
-        this.altura = altura;
+        this.cpf = cpf;
         this.plano = plano;
         this.treinos = new ArrayList<>();
         this.avaliacoes = new ArrayList<>();

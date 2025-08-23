@@ -47,6 +47,8 @@ public class Luta {
     public void removerAluno(Aluno aluno){
         this.aluno.remove(aluno);
     }
+
+    
     public void listarAlunos(){
         for(Aluno a : aluno){
             System.out.println(a.getNome());
@@ -55,6 +57,7 @@ public class Luta {
     public void alterarHorario(String novoHorario) {
         this.horario = novoHorario;
     }
+
     @Override
     public String toString() {
         return "Luta{" +

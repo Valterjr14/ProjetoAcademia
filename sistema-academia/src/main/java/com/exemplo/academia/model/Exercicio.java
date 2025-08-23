@@ -18,6 +18,7 @@ public class Exercicio {
         return nome;
     }
 
+    
     private static ArrayList<Exercicio> catalogo = new ArrayList<>();
 
     public static void exerciciosCatalogo(){

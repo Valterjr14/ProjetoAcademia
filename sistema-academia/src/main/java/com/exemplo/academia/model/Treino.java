@@ -39,27 +39,15 @@ public class Treino {
         this.duracaoMinutos = duracaoMinutos;
     }
 
-    public void adicionarExercicio(Exercicio exercicio, int numRepeticoes, int numSeries){
-        TreinoExercicio novoTreino = new TreinoExercicio(exercicio, numRepeticoes, numSeries);
-        listaExercicios.add(novoTreino);
-    }
-
-    public void removerExercicio(TreinoExercicio exercicio){
-        listaExercicios.remove(exercicio);
-    }
-
-    public void exibirTreino(){
-        System.out.println("Treino: " + descricaoTreino);
-        System.out.println("Nivel Dificuldade: " + nivelDificuldade);
-        System.out.println("Duração em minutos: " + duracaoMinutos + "min");
-        for(TreinoExercicio t : listaExercicios){
-            System.out.println("- " + t.getExercicio().getNome() 
-                                + " | séries: " + t.getNumSeries() 
-                                + " | Número de repetições: " + t.getNumRepeticoes());
-        }
+    public String exibirResumoTreino(){
+        return descricaoTreino + " (" + nivelDificuldade + ") - " + duracaoMinutos + " min";
     }
 
     public List<TreinoExercicio> getListaExercicios(){
         return listaExercicios;
+    }
+
+    public void setListaExericios(List<TreinoExercicio> listaExercicios){
+        this.listaExercicios = listaExercicios;
     }
 }

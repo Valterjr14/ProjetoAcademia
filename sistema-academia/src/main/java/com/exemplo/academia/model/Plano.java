@@ -34,4 +34,9 @@ public class Plano {
     public void setDuracaoMeses(int duracaoMeses){
         this.duracaoMeses = duracaoMeses;
     }
+
+    @Override
+    public String toString(){
+        return nomePlano + " (" + duracaoMeses + " meses) - R$ " + valor;
+    }
 }

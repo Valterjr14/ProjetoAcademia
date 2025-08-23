@@ -29,5 +29,10 @@ public class TreinoExercicio {
     public void setNumSeries(int numSeries){
         this.numSeries = numSeries;
     }
+
+    @Override
+    public String toString(){
+        return exercicio.getNome() + " | séries: " + numSeries + " | repetições: " + numRepeticoes;
+    }
     
 }

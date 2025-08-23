@@ -9,11 +9,11 @@ public class AvaliacaoFisica {
     private double imc;
 
     public AvaliacaoFisica(LocalDate data, double peso, double percentualGordura, double altura){
-    this.data = data;
-    this.peso= peso;
-    this.altura = altura;
-    this.percentualGordura = percentualGordura;
-    calcularIMC();
+        this.data = data;
+        this.peso= peso;
+        this.altura = altura;
+        this.percentualGordura = percentualGordura;
+        calcularIMC();
     }
 
     private void calcularIMC(){
@@ -30,12 +30,8 @@ public class AvaliacaoFisica {
     public double getImc() {return imc; }
     public double getPercentualGordura() {return percentualGordura;}
 
-    public void imprimirAvaliacao(){
-        System.out.println("Data: " + data);
-        System.out.println("Peso: " + peso + " kg");
-        System.out.println("Altura: " + altura + " m");
-        System.out.println("IMC: " + String.format("%.2f", imc));
-        System.out.println("Percentual de Gordura: " + percentualGordura + "%");
+    public String exibirResumoAvaliacao(){
+        return "Data: " + data + " | Peso: " + peso + "kg | Altura: " + altura + "m | IMC: " + String.format("%.2f", imc) + " | Percentual de Gordura: " + percentualGordura + "%";
     }
 }
 

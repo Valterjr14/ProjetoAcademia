@@ -1,19 +1,20 @@
+package com.exemplo.academia;
 
-package test.java.com.exemplo.academia;
+import com.exemplo.academia.controller.TreinoController;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import main.java.com.exemplo.academia.model.Aluno;
-import main.java.com.exemplo.academia.model.AvaliacaoFisica;
-import main.java.com.exemplo.academia.model.Exercicio;
-import main.java.com.exemplo.academia.model.Instrutor;
-import main.java.com.exemplo.academia.model.Plano;
-import main.java.com.exemplo.academia.model.Treino;
+import main.java.com.exemplo.academia.model.*;
+import main.java.com.exemplo.academia.controller.*;
+import main.java.com.exemplo.academia.service.*;
 
 public class Main {
     public static void main(String[] args) {
+        TreinoController  controller = new TreinoController();
+        controller.menu();
+        /*
         Plano plano1 = new Plano("Premium", 500.0, 6);
         Plano plano2 = new Plano("Basico", 200.0, 3);
         Plano plano3 = new Plano("Premium Plus", 1500.0, 12);
@@ -77,7 +78,7 @@ public class Main {
                         planoEscolhido = plano3;
                     }
                     
-                    Aluno novoAluno = new Aluno(nomeAluno, emailAluno, senhaAluno, matriculaAluno, peso, altura, planoEscolhido, null, null);
+                    Aluno novoAluno = new Aluno(nomeAluno, emailAluno, senhaAluno, matriculaAluno, peso, altura, planoEscolhido);
                     alunos.add(novoAluno);
                     System.out.println("Aluno cadastrado com sucesso!");
                     break;
@@ -234,6 +235,6 @@ public class Main {
 
         } while(opcao != 0);
 
-        sc.close();
+        sc.close();*/
     }
 }
