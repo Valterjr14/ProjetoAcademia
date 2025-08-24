@@ -3,11 +3,14 @@ package br.com.sysacademia.controller;
 import br.com.sysacademia.model.Instrutor;
 import br.com.sysacademia.service.InstrutorService;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+
 
 import java.util.List;
 import java.util.Optional;
 
-@RestController
+@Controller
 @RequestMapping("/instrutores")
 public class InstrutorController {
 
@@ -15,6 +18,19 @@ public class InstrutorController {
 
     public InstrutorController(InstrutorService instrutorService) {
         this.instrutorService = instrutorService;
+    }
+
+    @GetMapping("/novo")
+    public String novoInstrutorForm(Model model) {
+        model.addAttribute("instrutor", new Instrutor());
+        return "cadastro-instrutor";
+    }
+
+    @PostMapping("/salvar")
+    public String salvarInstrutor(@ModelAttribute Instrutor instrutor) {
+        System.out.println("Cadastrando instrutor: " + instrutor.getNome());
+        instrutorService.salvar(instrutor);
+        return "redirect:/login.html";
     }
 
     @PostMapping
