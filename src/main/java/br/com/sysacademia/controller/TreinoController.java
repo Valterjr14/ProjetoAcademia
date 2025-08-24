@@ -3,10 +3,14 @@ package br.com.sysacademia.controller;
 import br.com.sysacademia.model.Treino;
 import br.com.sysacademia.model.Exercicio;
 import br.com.sysacademia.service.TreinoService;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.Scanner;
 
+@RestController
+@RequestMapping("/treinos")
 public class TreinoController {
     private TreinoService treinoService;
     private Scanner scanner;

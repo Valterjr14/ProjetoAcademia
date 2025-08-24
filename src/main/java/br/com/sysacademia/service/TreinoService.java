@@ -1,11 +1,11 @@
 package br.com.sysacademia.service;
-
 import br.com.sysacademia.model.Treino;
 import br.com.sysacademia.model.TreinoExercicio;
 import br.com.sysacademia.model.Exercicio;
-
+import org.springframework.stereotype.Service;
 import java.util.List;
 
+@Service
 public class TreinoService {
     
     public void adicionarExercicio(Treino treino, Exercicio exercicio, int numRepeticoes, int numSeries){

@@ -2,12 +2,28 @@ package br.com.sysacademia.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name="alunos")
 public class Aluno extends Usuario {
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private Long id;
+    private String matricula;
+    private String cpf;
+    @ManyToOne
     private Plano plano;
-    private String matricula, cpf;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Treino> treinos;
+    @OneToMany(mappedBy = "aluno", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<AvaliacaoFisica> avaliacoes;
+
+    public Aluno() {
+        super();
+        this.treinos = new ArrayList<>();
+        this.avaliacoes = new ArrayList<>();
+    }
 
     public Aluno(String nome, String email, String senha, String matricula, String cpf, Plano plano) {
         super(nome, email, senha);
@@ -18,64 +34,45 @@ public class Aluno extends Usuario {
         this.avaliacoes = new ArrayList<>();
     }
 
-    public void adicionarTreino(Treino treino) {
-        treinos.add(treino);
-    }
+    public String getMatricula() { return matricula; }
+    public void setMatricula(String matricula) { this.matricula = matricula; }
 
-    public void adicionarAvaliacao(AvaliacaoFisica avaliacao){
-        avaliacoes.add(avaliacao);
-    }
+    public String getCpf() { return cpf; }
+    public void setCpf(String cpf) { this.cpf = cpf; }
 
-    public List<Treino> getTreinos(){
-        return treinos;
-    }
-    public List<AvaliacaoFisica> getAvaliacaoFisicas(){
-        return avaliacoes;
-    }
+    public Plano getPlano() { return plano; }
+    public void setPlano(Plano plano) { this.plano = plano; }
 
-    public Plano getPlano(){
-        return plano;
-    }
+    public List<Treino> getTreinos() { return treinos; }
+    public void adicionarTreino(Treino treino) { treinos.add(treino); }
 
-    public void mostrarAvaliacoes(){
-        System.out.println("Histórico de Avaliações de " + nome + ":");
+    public List<AvaliacaoFisica> getAvaliacoes() { return new ArrayList<>(avaliacoes); }
+    public void adicionarAvaliacoes(AvaliacaoFisica avaliacao) { avaliacoes.add(avaliacao); }
+
+    public void mostrarAvaliacoes() {
+        System.out.println("Histórico de Avaliações de " + getNome() + ":");
         if (avaliacoes.isEmpty()) {
             System.out.println("Nenhuma avaliação registrada.");
         } else {
             for (AvaliacaoFisica a : avaliacoes) {
-                a.exibirResumoAvaliacao();
+                a.imprimirAvaliacao();
                 System.out.println("-------------------");
             }
         }
     }
 
-    public String getMatricula() {
-        return matricula;
-    }
-    public List<AvaliacaoFisica> getAvaliacoes() {return new ArrayList<>(avaliacoes); }
-
-
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
-    }
-
-    public String getCpf(){
-        return cpf;
-    }
-
-    public void setCpf(String cpf){
-        this.cpf = cpf;
-    }
-
     @Override
     public String toString() {
         return "Aluno{" +
-                "nome='" + getNome() + '\'' +
+                "id=" + id +
+                ", nome='" + getNome() + '\'' +
                 ", email='" + getEmail() + '\'' +
                 ", senha='" + getSenha() + '\'' +
                 ", matricula='" + matricula + '\'' +
-                ", Plano='" + plano.getNomePlano() + '\'' +
-                ", CPF='" + getCpf() + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", plano='" + (plano != null ? plano.getNomePlano() : "sem plano") + '\'' +
+                ", treinos=" + treinos.size() +
+                ", avaliacoes=" + avaliacoes.size() +
                 '}';
     }
 }

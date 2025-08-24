@@ -1,9 +1,20 @@
 package br.com.sysacademia.model;
 
-public class TreinoExercicio {
-    private Exercicio exercicio;
-    private int numRepeticoes, numSeries;
+import jakarta.persistence.*;
 
+@Entity
+public class TreinoExercicio {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @ManyToOne
+    private Exercicio exercicio;
+    private int numRepeticoes;
+    private int numSeries;
+    @ManyToOne
+    private Treino treino; // referência de volta para Treino
+
+    public TreinoExercicio() {}
     public TreinoExercicio(Exercicio exercicio, int numRepeticoes, int numSeries){
         this.exercicio = exercicio;
         this.numRepeticoes = numRepeticoes;

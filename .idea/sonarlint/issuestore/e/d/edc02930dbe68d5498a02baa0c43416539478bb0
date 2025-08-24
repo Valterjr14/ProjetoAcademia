@@ -1,0 +1,30 @@
+
+Ÿ
+java:S1488B"^Immediately return this expression instead of assigning it to the temporary variable "treino".(ìã§ûÿÿÿÿJ$365a37e8-e648-4a3a-85ab-bca42d69aaf9
+
+java:S1854 ">Remove this useless assignment to local variable "novoTreino".(îÛúøÿÿÿÿJ$87e99981-f625-456a-9aa5-eeb3af533cde
+k	java:S106"+Replace this use of System.out by a logger.(–±ÇşÿÿÿÿJ$04168d1c-a2b5-4c35-a375-d4dec35c94b5
+f	java:S106"+Replace this use of System.out by a logger.(†Ü«J$466323cc-75d5-4734-8255-2361a95093f3
+k	java:S106"+Replace this use of System.out by a logger.(ãû¥•øÿÿÿÿJ$233ec150-52d9-4354-9b9a-112197a61cb0
+e	java:S106"+Replace this use of System.out by a logger.(º°üJ$a76d61ab-ff26-4e12-8e17-341560ce5c33
+k	java:S106"+Replace this use of System.out by a logger.(’Ğï¿ÿÿÿÿÿJ$e3fb76f1-7ec6-45e0-8ca2-62a657261b19
+f	java:S106"+Replace this use of System.out by a logger.(«ÀšİJ$e3978d18-041e-4701-aeae-029a97107fad
+p
+java:S1481 "/Remove this unused "novoTreino" local variable.(îÛúøÿÿÿÿJ$20484d33-54da-428b-a989-5b500070d0bb
+e	java:S106!"+Replace this use of System.out by a logger.(óûJ$c5e0a2ec-fddf-4446-a920-c69687e27547
+k	java:S106$"+Replace this use of System.out by a logger.(«â‹âûÿÿÿÿJ$825eefab-a9d9-4466-a2a0-22ad7517ac4e
+k	java:S106*"+Replace this use of System.out by a logger.(«¸ÌÿÿÿÿÿJ$1f8ac8ea-9488-4843-8f8d-1199f37c0a99
+f	java:S1061"+Replace this use of System.out by a logger.(›ƒÛÁJ$43e977fa-0c4f-4699-b26c-b8b4a12eb91b
+k	java:S1064"+Replace this use of System.out by a logger.(Şš¶ÛıÿÿÿÿJ$b489c831-db16-422a-a6ad-c3e3208f047c
+f	java:S106:"+Replace this use of System.out by a logger.(ÊòœJ$8cac28f1-f098-4400-aa73-ce873afa2e72
+f	java:S106;"+Replace this use of System.out by a logger.(¥ç¬ŒJ$aadb1f42-acce-4b33-9603-8d0bea1cc607
+f	java:S106="+Replace this use of System.out by a logger.(½´°µJ$e45ffcaf-6930-4531-bab0-c506c0ecd69d
+k	java:S106?"+Replace this use of System.out by a logger.(ØığÓıÿÿÿÿJ$ea03bd25-44b3-4980-845a-a7b4be2b9403
+e	java:S106G"+Replace this use of System.out by a logger.(î½‰yJ$cedfb461-101a-4cd8-8959-9adb6b98df7a
+k	java:S106H"+Replace this use of System.out by a logger.(¹¹î·øÿÿÿÿJ$242a19a4-f51a-44f5-9f53-bef7136c705b
+f	java:S106M"+Replace this use of System.out by a logger.(•ˆàÒJ$2d488a0c-6c65-4b16-ac83-e4246fdf51d5
+f	java:S106O"+Replace this use of System.out by a logger.(ˆ…ğJ$0fb1c2eb-e3e8-49ef-ba8d-234fe315362f
+k	java:S106S"+Replace this use of System.out by a logger.(…èÛİúÿÿÿÿJ$22fbe568-6c81-4d00-9d80-da7b26dad7b7
+f	java:S106Z"+Replace this use of System.out by a logger.(ÒÇ­®J$0d61f642-fe70-4960-a5ab-6d55ec921ee3
+f	java:S106^"+Replace this use of System.out by a logger.(¨³ËJ$318cdd54-e2c8-447b-b7e7-cc2d07cf24c5
+f	java:S106i"+Replace this use of System.out by a logger.(åÇç´J$813de85e-a046-4b4c-871a-94f4a82fea23

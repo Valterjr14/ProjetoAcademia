@@ -1,11 +1,17 @@
 package br.com.sysacademia.model;
-
+import jakarta.persistence.*;
 import java.util.List;
 import java.util.ArrayList;
 
+@Entity
+@Table(name= "treinos")
 public class Treino {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String descricaoTreino, nivelDificuldade;
     private int duracaoMinutos;
+    @OneToMany(mappedBy = "treino", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<TreinoExercicio> listaExercicios;
 
     public Treino(String descricaoTreino, String nivelDificuldade, int duracaoMinutos){
@@ -15,6 +21,7 @@ public class Treino {
         this.listaExercicios = new ArrayList<>();
     }
 
+    public Long getId(){ return id; }
     public String getDescricaoTreino(){
         return descricaoTreino;
     }

@@ -1,50 +1,43 @@
 package br.com.sysacademia.controller;
 
-import br.com.sysacademia.model.*;
+import br.com.sysacademia.model.Instrutor;
+import br.com.sysacademia.service.InstrutorService;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Optional;
 
+@RestController
+@RequestMapping("/instrutores")
 public class InstrutorController {
-    private Instrutor instrutor;
 
-    public InstrutorController(Instrutor instrutor) {
-        this.instrutor = instrutor;
+    private final InstrutorService instrutorService;
+
+    public InstrutorController(InstrutorService instrutorService) {
+        this.instrutorService = instrutorService;
     }
 
-    public void adicionarAluno(Aluno aluno) {
-        if (aluno != null) {
-            instrutor.adicionarAluno(aluno);
-            System.out.println("Aluno " + aluno.getNome() + " adicionado com sucesso ao instrutor " + instrutor.getNome());
-        } else {
-            System.out.println("Erro: aluno inválido.");
-        }
+    @PostMapping
+    public Instrutor criar(@RequestBody Instrutor instrutor) {
+        System.out.println("Cadastrando instrutor: " + instrutor.getNome());
+        return instrutorService.salvar(instrutor);
     }
 
-    public void criarTreinoParaAluno(Aluno aluno, Treino treino) {
-        if (aluno != null && treino != null) {
-            instrutor.criarTreino(aluno, treino);
-            System.out.println("Treino " + treino + " criado com sucesso para o aluno " + aluno.getNome());
-        } else {
-            System.out.println("Erro: aluno ou treino inválido.");
-        }
+    @GetMapping
+    public List<Instrutor> listar() {
+        System.out.println("Listando instrutores...");
+        return instrutorService.listarTodos();
     }
 
-    public void realizarAvaliacaoParaAluno(Aluno aluno, AvaliacaoFisica avaliacao) {
-        if (aluno != null && avaliacao != null) {
-            instrutor.realizarAvaliacao(aluno, avaliacao);
-            System.out.println("Avaliação registrada com sucesso para o aluno " + aluno.getNome());
-        } else {
-            System.out.println("Erro: aluno ou avaliação inválida.");
-        }
+    @GetMapping("/{id}")
+    public Optional<Instrutor> buscarPorId(@PathVariable Long id) {
+        System.out.println("Buscando instrutor com id " + id);
+        return instrutorService.buscarPorId(id);
     }
 
-    public void listarAlunos() {
-        if (instrutor.getAlunos().isEmpty()) {
-            System.out.println("Nenhum aluno associado ao instrutor " + instrutor.getNome());
-        } else {
-            System.out.println("Alunos do instrutor " + instrutor.getNome() + ":");
-            for (Aluno aluno : instrutor.getAlunos()) {
-                System.out.println("- " + aluno.getNome());
-            }
-        }
+    @DeleteMapping("/{id}")
+    public void deletar(@PathVariable Long id) {
+        System.out.println("Removendo instrutor com id " + id);
+        instrutorService.deletar(id);
     }
 }
