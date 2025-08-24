@@ -55,7 +55,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.exemplo.academia.AcademiaApplication</mainClass>
+                    <mainClass>br.com.sysacademia.AcademiaApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>

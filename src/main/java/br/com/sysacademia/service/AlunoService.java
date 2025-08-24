@@ -1,15 +1,19 @@
 package br.com.sysacademia.service;
+
 import br.com.sysacademia.model.Aluno;
 import br.com.sysacademia.repository.AlunoRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+
 @Service
 public class AlunoService {
     private final AlunoRepository repository;
     public AlunoService(AlunoRepository repository){
         this.repository = repository;
     }
+    @Transactional
     public Aluno salvarAluno(Aluno alu){
         System.out.println("Salvando aluno: " + alu.getNome());
         return repository.save(alu);

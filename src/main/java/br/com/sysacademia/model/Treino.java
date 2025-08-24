@@ -49,6 +49,10 @@ public class Treino {
         this.duracaoMinutos = duracaoMinutos;
     }
 
+    public void setAluno(Aluno aluno){
+        this.aluno = aluno;
+    }
+
     public String exibirResumoTreino(){
         return descricaoTreino + " (" + nivelDificuldade + ") - " + duracaoMinutos + " min";
     }

@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "MainTest",
+            "request": "launch",
+            "mainClass": "br.com.sysacademia.MainTest",
+            "projectName": "sistema-academia"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"

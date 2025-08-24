@@ -19,6 +19,9 @@ public class Aluno extends Usuario {
     private List<Treino> treinos;
     @OneToMany(mappedBy = "aluno", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<AvaliacaoFisica> avaliacoes;
+    @ManyToOne
+    @JoinColumn(name = "instrutor_id")
+    private Instrutor instrutor;
 
     public Aluno() {
         super();
@@ -43,6 +46,8 @@ public class Aluno extends Usuario {
 
     public Plano getPlano() { return plano; }
     public void setPlano(Plano plano) { this.plano = plano; }
+
+    public void setInstrutor(Instrutor instrutor){this.instrutor = instrutor;}
 
     public List<Treino> getTreinos() { return treinos; }
     public void adicionarTreino(Treino treino) { treinos.add(treino); }

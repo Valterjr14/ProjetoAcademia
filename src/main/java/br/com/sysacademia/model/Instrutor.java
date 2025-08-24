@@ -7,7 +7,7 @@ import java.util.List;
 @Table(name = "instrutores")
 public class Instrutor extends Usuario {
     private String especialidade;
-    @OneToMany
+    @OneToMany(mappedBy = "instrutor")
     private List<Aluno> alunos = new ArrayList<>();
 
     public Instrutor() {
@@ -22,9 +22,11 @@ public class Instrutor extends Usuario {
     }
     public void criarTreino(Aluno aluno, Treino treino) {
         aluno.adicionarTreino(treino);
+        treino.setAluno(aluno);
     }
     public void realizarAvaliacao(Aluno aluno, AvaliacaoFisica avaliacao) {
         aluno.adicionarAvaliacoes(avaliacao);
+        avaliacao.setAluno(aluno);
     }
     public List<Aluno> getAlunos() {
         return alunos;
