@@ -13,8 +13,9 @@ public class Aluno extends Usuario {
     private String matricula;
     private String cpf;
     @ManyToOne
+    @JoinColumn(name = "plano_id")
     private Plano plano;
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "aluno", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Treino> treinos;
     @OneToMany(mappedBy = "aluno", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<AvaliacaoFisica> avaliacoes;

@@ -11,6 +11,9 @@ public class Treino {
     private Long id;
     private String descricaoTreino, nivelDificuldade;
     private int duracaoMinutos;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "aluno_id")
+    private Aluno aluno;
     @OneToMany(mappedBy = "treino", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<TreinoExercicio> listaExercicios;
 
