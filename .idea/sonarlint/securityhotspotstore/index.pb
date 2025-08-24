@@ -127,3 +127,7 @@ n
 >src/main/java/br/com/sysacademia/service/InstrutorService.java,2\0\20779695457fc9ff1935b01a72376d262cf26f4f
 a
 1src/test/java/com/exemplo/academia/AlunoTest.java,3\f\3f2972a0683d30f2484f503de86f73554475882e
+`
+0src/test/java/com/exemplo/academia/TesteSql.java,d\7\d7e7e1acf4a368403fa3af28469e240a39401bc9
+e
+5src/test/java/com/exemplo/academia/TestePostgres.java,9\3\93754a73fae172c5b86326231c50a9193117acf7
