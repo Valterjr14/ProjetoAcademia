@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Painel do Instrutor</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/painel.css"> 
+</head>
+<body>
+    <div class="panel-container">
+        <h1>Painel do Instrutor: <span th:text="${instrutor?.nome}">Nome</span></h1>
+        
+        <h2 style="text-align: left;">Gerenciar Alunos da Academia</h2>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Nome do Aluno</th>
+                    <th>Matrícula</th>
+                    <th class="actions">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="aluno : ${alunos}" th:if="${aluno != null}">
+                    <td th:text="${aluno.nome}">Nome Aluno</td>
+                    <td th:text="${aluno.matricula}">M001</td>
+                    <td class="actions">
+                        <a th:href="@{/instrutores/gerenciar-aluno/{id}(id=${aluno.id})}">Gerenciar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

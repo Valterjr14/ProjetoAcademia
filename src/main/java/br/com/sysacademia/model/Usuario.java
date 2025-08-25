@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public abstract class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    protected Long id;
     protected String nome;
     protected String email;
     protected String senha;

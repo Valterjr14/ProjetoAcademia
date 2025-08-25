@@ -17,6 +17,10 @@ public class Treino {
     @OneToMany(mappedBy = "treino", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<TreinoExercicio> listaExercicios;
 
+    public Treino(){
+        this.listaExercicios = new ArrayList<>();
+    }
+
     public Treino(String descricaoTreino, String nivelDificuldade, int duracaoMinutos){
         this.descricaoTreino = descricaoTreino;
         this.nivelDificuldade = nivelDificuldade;

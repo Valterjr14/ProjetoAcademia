@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes do Treino</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="login-container" style="width: 500px;">
+        <h1 th:text="${treino.descricaoTreino}">Nome do Treino</h1>
+        <p th:text="|Nível: ${treino.nivelDificuldade}, Duração: ${treino.duracaoMinutos} min|">Detalhes</p>
+
+        <hr>
+        <h2>Exercícios do Treino</h2>
+        <ul>
+            <li th:each="item : ${treino.listaExercicios}" 
+                th:text="|${item.exercicio.nome} - ${item.numSeries}x${item.numRepeticoes}|">
+                Exercício - 3x12
+            </li>
+        </ul>
+
+        <hr>
+        <h2>Adicionar Novo Exercício</h2>
+        <form th:action="@{/treinos/{treinoId}/adicionar-exercicio(treinoId=${treino.id})}" method="post">
+            <label for="exercicioId">Exercício</label>
+            <select id="exercicioId" name="exercicioId" required>
+                <option value="">Selecione um exercício</option>
+                <option th:each="exercicio : ${todosExercicios}" 
+                        th:value="${exercicio.id}" 
+                        th:text="${exercicio.nome}">Supino Reto</option>
+            </select>
+
+            <label for="series">Séries</label>
+            <input type="number" id="series" name="series" required>
+            
+            <label for="repeticoes">Repetições</label>
+            <input type="number" id="repeticoes" name="repeticoes" required>
+
+            <button type="submit">Adicionar</button>
+        </form>
+    </div>
+</body>
+</html>

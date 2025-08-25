@@ -1,4 +1,5 @@
 D:\Vs Code\Projeto POO - Academia\SistemaAcademia\src\main\java\br\com\sysacademia\AcademiaApplication.java
+D:\Vs Code\Projeto POO - Academia\SistemaAcademia\src\main\java\br\com\sysacademia\config\DataInitializerConfig.java
 D:\Vs Code\Projeto POO - Academia\SistemaAcademia\src\main\java\br\com\sysacademia\controller\AlunoController.java
 D:\Vs Code\Projeto POO - Academia\SistemaAcademia\src\main\java\br\com\sysacademia\controller\AvaliacaoFisicaController.java
 D:\Vs Code\Projeto POO - Academia\SistemaAcademia\src\main\java\br\com\sysacademia\controller\ExercicioController.java
@@ -19,6 +20,7 @@ D:\Vs Code\Projeto POO - Academia\SistemaAcademia\src\main\java\br\com\sysacadem
 D:\Vs Code\Projeto POO - Academia\SistemaAcademia\src\main\java\br\com\sysacademia\repository\ExercicioRepository.java
 D:\Vs Code\Projeto POO - Academia\SistemaAcademia\src\main\java\br\com\sysacademia\repository\InstrutorRepository.java
 D:\Vs Code\Projeto POO - Academia\SistemaAcademia\src\main\java\br\com\sysacademia\repository\PlanoRepository.java
+D:\Vs Code\Projeto POO - Academia\SistemaAcademia\src\main\java\br\com\sysacademia\repository\TreinoExercicioRepository.java
 D:\Vs Code\Projeto POO - Academia\SistemaAcademia\src\main\java\br\com\sysacademia\repository\TreinosRepository.java
 D:\Vs Code\Projeto POO - Academia\SistemaAcademia\src\main\java\br\com\sysacademia\service\AlunoService.java
 D:\Vs Code\Projeto POO - Academia\SistemaAcademia\src\main\java\br\com\sysacademia\service\AvaliacaoFisicaService.java

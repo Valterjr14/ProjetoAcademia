@@ -12,7 +12,7 @@ public class TreinoExercicio {
     private int numRepeticoes;
     private int numSeries;
     @ManyToOne
-    private Treino treino; // referência de volta para Treino
+    private Treino treino;
 
     public TreinoExercicio() {}
     public TreinoExercicio(Exercicio exercicio, int numRepeticoes, int numSeries){
@@ -39,6 +39,10 @@ public class TreinoExercicio {
 
     public void setNumSeries(int numSeries){
         this.numSeries = numSeries;
+    }
+
+    public void setTreino(Treino treino){
+        this.treino = treino;
     }
 
     @Override

@@ -13,6 +13,7 @@ br\com\sysacademia\model\Usuario.class
 br\com\sysacademia\service\TreinoService.class
 br\com\sysacademia\repository\AlunoRepository.class
 br\com\sysacademia\controller\PlanoController.class
+br\com\sysacademia\repository\TreinoExercicioRepository.class
 br\com\sysacademia\model\AvaliacaoFisica.class
 br\com\sysacademia\model\Exercicio.class
 br\com\sysacademia\model\TreinoExercicio.class

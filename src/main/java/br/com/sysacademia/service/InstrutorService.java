@@ -43,4 +43,8 @@ public class InstrutorService {
         }
         return false;
     }
+    public List<Aluno> listarAlunosInstrutor(Long instrutorId){
+        Optional<Instrutor> instrutor = instrutorRepository.findById(instrutorId);
+        return instrutor.map(Instrutor::getAlunos).orElse(null);
+    }
 }

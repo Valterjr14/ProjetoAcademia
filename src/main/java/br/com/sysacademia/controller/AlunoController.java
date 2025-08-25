@@ -29,6 +29,14 @@ public class AlunoController {
     @GetMapping
     public String listarAlunos(Model model) {
         model.addAttribute("alunos", service.listarAlunos());
-        return "alunos/lista";
+        return "aluno/lista-alunos";
     }
+
+    @GetMapping("/{id}")
+    public String detalhesAluno(@PathVariable Long id, Model model) {
+        service.buscarPorId(id).ifPresent(aluno -> {
+        model.addAttribute("aluno", aluno);
+    });
+    return "aluno/detalhes-aluno";
+}
 }

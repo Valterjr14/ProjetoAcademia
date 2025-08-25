@@ -5,8 +5,9 @@ import br.com.sysacademia.service.ExercicioService;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
+import org.springframework.stereotype.Controller;
 
-@RestController
+@Controller
 @RequestMapping("/exercicios")
 public class ExercicioController {
     private final ExercicioService exercicioService;

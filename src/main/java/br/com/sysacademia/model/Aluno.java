@@ -7,9 +7,7 @@ import jakarta.persistence.*;
 @Entity
 @Table(name="alunos")
 public class Aluno extends Usuario {
-    @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long id;
+
     private String matricula;
     private String cpf;
     @ManyToOne

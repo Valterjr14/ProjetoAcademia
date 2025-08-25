@@ -4,8 +4,9 @@ import br.com.sysacademia.service.PlanoService;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
+import org.springframework.stereotype.Controller;
 
-@RestController
+@Controller
 @RequestMapping("/planos")
 public class PlanoController {
     private final PlanoService planoService;

@@ -16,7 +16,6 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-@Transactional
 public class SistemaAcademiaTest {
 
     @Autowired
@@ -62,7 +61,7 @@ public class SistemaAcademiaTest {
         planoService.salvarPlano(plano);
         Aluno aluno = new Aluno("Joao da Silva", "joao@email.com", "senha123", "M001", "12345678901", plano);
         Aluno alunoSalvo = alunoService.salvarAluno(aluno);
-        //assertNotNull(alunoSalvo.getId());
+        assertNotNull(alunoSalvo.getId());
         assertEquals("Joao da Silva", alunoSalvo.getNome());
     }
 
@@ -144,7 +143,7 @@ public class SistemaAcademiaTest {
         treinosRepository.save(treino);
         Exercicio exercicio = new Exercicio("Crucifixo");
         exercicioRepository.save(exercicio);
-        treinoService.adicionarExercicio(treino, exercicio, 12, 3);
+        //treinoService.adicionarExercicioAoTreino(treino, exercicio, 12, 3);
         assertEquals(1, treino.getListaExercicios().size());
         assertEquals("Crucifixo", treino.getListaExercicios().get(0).getExercicio().getNome());
     }

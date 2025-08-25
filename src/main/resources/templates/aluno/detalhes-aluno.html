@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes do Aluno</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/painel.css">
+</head>
+<body>
+    <div class="panel-container" style="width: 700px;">
+        <h1>Detalhes de <span th:text="${aluno.nome}">Nome do Aluno</span></h1>
+        <p><strong>Email:</strong> <span th:text="${aluno.email}">email@exemplo.com</span></p>
+        <p><strong>Matrícula:</strong> <span th:text="${aluno.matricula}">M001</span></p>
+
+        <hr class="divider">
+
+        <h2>Treinos Associados</h2>
+        
+        <a th:href="@{/treinos/novo/{alunoId}(alunoId=${aluno.id})}" class="action-link">
+            + Adicionar Novo Treino
+        </a>
+
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Descrição</th>
+                    <th>Nível</th>
+                    <th class="actions">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="treino : ${aluno.treinos}">
+                    <td th:text="${treino.descricaoTreino}">Treino A</td>
+                    <td th:text="${treino.nivelDificuldade}">Iniciante</td>
+                    <td class="actions">
+                        <a th:href="@{/treinos/{id}(id=${treino.id})}">Visualizar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <hr class="divider">
+
+        <div>
+            <a href="/alunos" class="register-link">Voltar para a lista de alunos</a>
+            <span style="margin: 0 10px;">|</span>
+            <a th:href="@{/instrutores/painel}" class="register-link">Voltar para o Painel do Instrutor</a>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+/* Estilos gerais para os painéis e containers maiores */
+.panel-container {
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    width: 800px;
+    text-align: left; 
+}
+
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.styled-table th,
+.styled-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.styled-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.styled-table td.actions {
+    text-align: center;
+}
+
+.styled-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.styled-list li {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin-bottom: 8px;
+}
+
+.action-link {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.action-link:hover {
+    text-decoration: underline;
+}
+
+.divider {
+    margin: 25px 0;
+}
