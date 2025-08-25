@@ -53,6 +53,10 @@ public class Treino {
         this.duracaoMinutos = duracaoMinutos;
     }
 
+    public Aluno getAluno(){
+        return aluno;
+    }
+
     public void setAluno(Aluno aluno){
         this.aluno = aluno;
     }

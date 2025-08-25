@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.Optional;
+import java.util.List;
 
 @Controller
 @RequestMapping("/instrutores")
@@ -28,14 +29,21 @@ public class InstrutorController {
     }
 
     @GetMapping("/painel")
-    public String painelInstrutor(Model model) {
-        Optional<Instrutor> instrutorOpt = instrutorService.buscarPorId(1L);
-
-        Instrutor instrutor = instrutorOpt.orElse(new Instrutor("Instrutor Padrão", "", "", ""));
-        model.addAttribute("instrutor", instrutor);
-
-        model.addAttribute("alunos", alunoService.listarAlunos());
-    
+    public String painelInstrutor(@RequestParam(name = "q", required = false) String query, Model model) {
+        instrutorService.buscarPorId(1L).ifPresent(instrutor -> {
+            model.addAttribute("instrutor", instrutor);
+        });
+        
+        List<Aluno> alunos;
+        if (query != null && !query.isEmpty()) {
+            alunos = alunoService.buscarPorNome(query);
+        } else {
+            alunos = alunoService.listarAlunos();
+        }
+        
+        model.addAttribute("alunos", alunos);
+        model.addAttribute("termoBusca", query);
+        
         return "instrutor/painel";
     }
 

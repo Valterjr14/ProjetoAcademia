@@ -14,12 +14,17 @@
 
         <hr class="divider">
 
-        <h2>Treinos Associados</h2>
+        <div>
+            <a th:href="@{/treinos/novo/{alunoId}(alunoId=${aluno.id})}" class="action-link">
+                + Adicionar Novo Treino
+            </a>
+            <span style="margin: 0 10px;">|</span>
+            <a th:href="@{/instrutores/gerenciar-aluno/{alunoId}/nova-avaliacao(alunoId=${aluno.id})}" class="action-link">
+                + Adicionar Nova Avaliação
+            </a>
+        </div>
         
-        <a th:href="@{/treinos/novo/{alunoId}(alunoId=${aluno.id})}" class="action-link">
-            + Adicionar Novo Treino
-        </a>
-
+        <h2>Treinos Associados</h2>
         <table class="styled-table">
             <thead>
                 <tr>
@@ -33,20 +38,41 @@
                     <td th:text="${treino.descricaoTreino}">Treino A</td>
                     <td th:text="${treino.nivelDificuldade}">Iniciante</td>
                     <td class="actions">
-                        <a th:href="@{/treinos/{id}(id=${treino.id})}">Visualizar</a>
+                        <a th:href="@{/treinos/{id}(id=${treino.id})}">Adicionar Exercícios</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 style="margin-top: 30px;">Avaliações Físicas</h2>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Peso</th>
+                    <th>IMC</th>
+                    <th class="actions">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="avaliacao : ${aluno.avaliacoes}">
+                    <td th:text="${#temporals.format(avaliacao.data, 'dd/MM/yyyy')}">01/01/2025</td>
+                    <td th:text="|${avaliacao.peso} kg|">75 kg</td>
+                    <td th:text="${#numbers.formatDecimal(avaliacao.imc, 1, 2)}">22.5</td>
+                    <td class="actions">
+                        <a th:href="@{/avaliacoes/{id}(id=${avaliacao.id})}">Visualizar</a>
                     </td>
                 </tr>
             </tbody>
         </table>
         
         <hr class="divider">
-
+        
         <div>
             <a href="/alunos" class="register-link">Voltar para a lista de alunos</a>
             <span style="margin: 0 10px;">|</span>
             <a th:href="@{/instrutores/painel}" class="register-link">Voltar para o Painel do Instrutor</a>
         </div>
-
     </div>
 </body>
 </html>

@@ -8,9 +8,20 @@
 </head>
 <body>
     <div class="panel-container">
-        <h1>Painel do Instrutor: <span th:text="${instrutor?.nome}">Nome</span></h1>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h1>Painel do Instrutor: <span th:text="${instrutor?.nome}">Nome</span></h1>
+            <form th:action="@{/logout}" method="post">
+                <button type="submit" class="delete-button" style="background-color: #6c757d;">Sair</button>
+            </form>
+        </div>
         
         <h2 style="text-align: left;">Gerenciar Alunos da Academia</h2>
+
+        <form th:action="@{/instrutores/painel}" method="get" style="margin-bottom: 20px; display: flex; gap: 10px;">
+            <input type="text" name="q" placeholder="Buscar aluno por nome..." th:value="${termoBusca}" style="flex-grow: 1; padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+            <button type="submit" style="padding: 10px 15px;">Buscar</button>
+        </form>
+
         <table class="styled-table">
             <thead>
                 <tr>
@@ -25,6 +36,9 @@
                     <td th:text="${aluno.matricula}">M001</td>
                     <td class="actions">
                         <a th:href="@{/instrutores/gerenciar-aluno/{id}(id=${aluno.id})}">Gerenciar</a>
+                        <form th:action="@{/alunos/{id}/deletar(id=${aluno.id})}" method="post" style="display:inline; margin-left: 10px;">
+                            <button type="submit" class="delete-button" onclick="return confirm('Tem certeza que deseja excluir este aluno?');">Deletar</button>
+                        </form>
                     </td>
                 </tr>
             </tbody>

@@ -7,17 +7,17 @@
     <link rel="stylesheet" href="/css/painel.css">
 </head>
 <body>
-    <div class="panel-container" style="width: 700px;">
+    <div class="panel-container" style="width: 700px; text-align: left;">
         <h1>Gerenciando: <span th:text="${aluno.nome}">Nome do Aluno</span></h1>
         
-        <div>
+        <div style="margin-bottom: 20px;">
             <a th:href="@{/treinos/novo/{alunoId}(alunoId=${aluno.id})}" class="action-link">Criar Novo Treino</a>
             <span style="margin: 0 10px;">|</span>
             <a th:href="@{/instrutores/gerenciar-aluno/{alunoId}/nova-avaliacao(alunoId=${aluno.id})}" class="action-link">Nova Avaliação Física</a>
+            <span style="margin: 0 10px;">|</span>
+            <a th:href="@{/alunos/{id}(id=${aluno.id})}" class="action-link">Ver Detalhes do Aluno</a>
         </div>
         
-        <hr class="divider">
-
         <h3>Treinos Atuais</h3>
         <ul class="styled-list">
             <li th:each="treino : ${aluno.treinos}">
@@ -32,7 +32,7 @@
             </li>
         </ul>
 
-        <a href="/instrutores/painel" class="register-link" style="margin-top: 20px;">Voltar ao Painel</a>
+        <a href="/instrutores/painel" class="register-link" style="margin-top: 20px; display:inline-block;">Voltar ao Painel</a>
     </div>
 </body>
 </html>

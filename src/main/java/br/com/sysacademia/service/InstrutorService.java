@@ -5,6 +5,7 @@ import br.com.sysacademia.repository.InstrutorRepository;
 import br.com.sysacademia.repository.AlunoRepository;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,12 +13,15 @@ import java.util.Optional;
 public class InstrutorService {
     private final InstrutorRepository instrutorRepository;
     private final AlunoRepository alunoRepository;
+    private final PasswordEncoder passwordEncoder;
 
-    public InstrutorService(InstrutorRepository instrutorRepository, AlunoRepository alunoRepository) {
+    public InstrutorService(InstrutorRepository instrutorRepository, AlunoRepository alunoRepository, PasswordEncoder passwordEncoder) {
         this.instrutorRepository = instrutorRepository;
         this.alunoRepository = alunoRepository;
+        this.passwordEncoder = passwordEncoder;
     }
     public Instrutor salvar(Instrutor instrutor) {
+        instrutor.setSenha(passwordEncoder.encode(instrutor.getSenha()));
         return instrutorRepository.save(instrutor);
     }
     public List<Instrutor> listarTodos() {
@@ -46,5 +50,8 @@ public class InstrutorService {
     public List<Aluno> listarAlunosInstrutor(Long instrutorId){
         Optional<Instrutor> instrutor = instrutorRepository.findById(instrutorId);
         return instrutor.map(Instrutor::getAlunos).orElse(null);
+    }
+    public Optional<Instrutor> buscarPorEmail(String email) {
+        return instrutorRepository.findByEmail(email);
     }
 }

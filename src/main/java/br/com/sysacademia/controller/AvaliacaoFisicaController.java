@@ -41,14 +41,11 @@ public class AvaliacaoFisicaController {
         }
     }
 
-    @GetMapping("/visualizar/{id}")
+    @GetMapping("/{id}")
     public String visualizarAvaliacao(@PathVariable Long id, Model model) {
-        Optional<AvaliacaoFisica> avaliacaoOptional = avaliacaoFisicaService.buscarPorId(id);
-        if (avaliacaoOptional.isPresent()) {
-            model.addAttribute("avaliacao", avaliacaoOptional.get());
-            return "visualizar-avaliacao";
-        } else {
-            return "redirect:/instrutores/painel";
-        }
+        avaliacaoFisicaService.buscarPorId(id).ifPresent(avaliacao -> {
+            model.addAttribute("avaliacao", avaliacao);
+        });
+        return "avaliacao/detalhes-avaliacao"; // -> templates/avaliacao/detalhes-avaliacao.html
     }
 }

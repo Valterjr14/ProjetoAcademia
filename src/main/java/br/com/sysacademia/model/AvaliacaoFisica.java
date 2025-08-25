@@ -42,6 +42,7 @@ public class AvaliacaoFisica {
     public double getAltura() {return altura; }
     public double getImc() {return imc; }
     public double getPercentualGordura() {return percentualGordura;}
+    public Aluno getAluno(){return aluno;}
 
     public void setAluno(Aluno aluno){this.aluno = aluno;}
     public void setPercentualGordura(double percentualGordura) { this.percentualGordura = percentualGordura; }

@@ -1,8 +1,12 @@
 package br.com.sysacademia.model;
+import java.math.BigDecimal;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Column;
+
 @Entity
 public class Plano {
     @Id
@@ -10,11 +14,12 @@ public class Plano {
     private Long id;
 
     private String nomePlano;
-    private double valor;
+    @Column(name = "valor")
+    private BigDecimal valor;
     private int duracaoMeses;
 
     public Plano(){}
-    public Plano(String nomePlano, double valor, int duracaoMeses){
+    public Plano(String nomePlano, BigDecimal valor, int duracaoMeses){
         this.nomePlano = nomePlano;
         this.valor = valor;
         this.duracaoMeses = duracaoMeses;
@@ -29,11 +34,11 @@ public class Plano {
         this.nomePlano = nomePlano;
     }
 
-    public double getValor(){
+    public BigDecimal getValor(){
         return valor;
     }
 
-    public void setValor(double valor){
+    public void setValor(BigDecimal valor){
         this.valor = valor;
     }
 

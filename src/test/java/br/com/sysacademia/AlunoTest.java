@@ -9,7 +9,7 @@ public class AlunoTest {
 
     @Test
     void criacaoTesteAluno(){
-        Plano plano = new Plano("Premium", 500.0, 6);
+        Plano plano = new Plano();
         Aluno aluno = new Aluno("Junior", "jn@gn.com", "senha3782", "123", "12345678901", plano);
 
         assertEquals("Junior", aluno.getNome());

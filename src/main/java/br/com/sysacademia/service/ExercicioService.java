@@ -25,4 +25,7 @@ public class ExercicioService {
     public void deletar(Long id) {
         exercicioRepository.deleteById(id);
     }
+    public Optional<Exercicio> buscarPorNome(String nome) {
+        return exercicioRepository.findByNome(nome);
+    }
 }

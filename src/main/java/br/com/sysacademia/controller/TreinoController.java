@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/treinos")
@@ -57,11 +58,18 @@ public class TreinoController {
     @PostMapping("/{treinoId}/adicionar-exercicio")
     public String adicionarExercicio(
             @PathVariable Long treinoId,
-            @RequestParam Long exercicioId,
+            @RequestParam String exercicioNome, // Alterado de exercicioId para exercicioNome
             @RequestParam int series,
             @RequestParam int repeticoes) {
         
-        treinoService.adicionarExercicioAoTreino(treinoId, exercicioId, series, repeticoes);
+        Optional<Exercicio> exercicioOpt = exercicioService.buscarPorNome(exercicioNome);
+        
+        if (exercicioOpt.isPresent()) {
+            treinoService.adicionarExercicioAoTreino(treinoId, exercicioOpt.get().getId(), series, repeticoes);
+        } else {
+            System.out.println("Exercício com nome '" + exercicioNome + "' não encontrado.");
+        }
+
         return "redirect:/treinos/" + treinoId;
     }
 

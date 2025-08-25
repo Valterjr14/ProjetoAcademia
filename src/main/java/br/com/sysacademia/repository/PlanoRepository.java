@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PlanoRepository extends JpaRepository<Plano, Long> {
-
+    boolean existsByNomePlano(String nomePlano);
 }

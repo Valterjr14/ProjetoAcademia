@@ -30,6 +30,7 @@ public class TreinoService {
         return treinosRepository.findAll();
     }
 
+    @Transactional
     public Optional<Treino> buscarPorId(Long id) {
         return treinosRepository.findById(id);
     }

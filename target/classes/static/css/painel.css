@@ -60,3 +60,53 @@
 .divider {
     margin: 25px 0;
 }
+
+.delete-button {
+    background-color: #dc3545;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+.exercise-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+    padding: 12px 15px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin-bottom: 8px;
+}
+
+.exercise-list-item .name {
+    font-weight: 500;
+}
+
+.exercise-list-item .details {
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px; 
+    align-items: end;
+}
+
+.form-grid .full-width {
+    grid-column: 1 / -1;
+}
+
+.form-grid button {
+    width: 100%;
+    grid-column: 1 / -1;
+}

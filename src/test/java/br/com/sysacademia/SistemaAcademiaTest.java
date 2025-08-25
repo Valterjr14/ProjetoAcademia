@@ -57,7 +57,7 @@ public class SistemaAcademiaTest {
 
     @Test
     void testCriacaoESalvarAluno() {
-        Plano plano = new Plano("Plano Teste", 150.0, 3);
+        Plano plano = new Plano();
         planoService.salvarPlano(plano);
         Aluno aluno = new Aluno("Joao da Silva", "joao@email.com", "senha123", "M001", "12345678901", plano);
         Aluno alunoSalvo = alunoService.salvarAluno(aluno);
@@ -67,7 +67,7 @@ public class SistemaAcademiaTest {
 
     @Test
     void testBuscarAlunoPorMatricula() {
-        Plano plano = new Plano("Plano Teste", 150.0, 3);
+        Plano plano = new Plano();
         planoService.salvarPlano(plano);
         Aluno aluno = new Aluno("Maria Oliveira", "maria@email.com", "senha456", "M002", "98765432109", plano);
         alunoService.salvarAluno(aluno);
@@ -78,7 +78,7 @@ public class SistemaAcademiaTest {
 
     @Test
     void testListarTodosAlunos() {
-        Plano plano = new Plano("Plano Teste", 150.0, 3);
+        Plano plano = new Plano();
         planoService.salvarPlano(plano);
         Aluno aluno1 = new Aluno("Carlos Pereira", "carlos@email.com", "senha789", "M003", "11122233344", plano);
         Aluno aluno2 = new Aluno("Ana Souza", "ana@email.com", "senhaabc", "M004", "55566677788", plano);
@@ -90,7 +90,7 @@ public class SistemaAcademiaTest {
     
     @Test
     void testSalvarEPesquisarPlano() {
-        Plano plano = new Plano("Plano Bronze", 100.0, 1);
+        Plano plano = new Plano();
         Plano planoSalvo = planoService.salvarPlano(plano);
         assertNotNull(planoSalvo.getId());
         Optional<Plano> planoEncontrado = planoService.buscarPorId(planoSalvo.getId());
@@ -100,7 +100,7 @@ public class SistemaAcademiaTest {
     
     @Test
     void testDeletarPlano() {
-        Plano plano = new Plano("Plano Prata", 200.0, 6);
+        Plano plano = new Plano();
         Plano planoSalvo = planoService.salvarPlano(plano);
         planoService.deletarPlano(planoSalvo.getId());
         Optional<Plano> planoEncontrado = planoService.buscarPorId(planoSalvo.getId());
