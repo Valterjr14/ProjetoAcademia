@@ -2,18 +2,21 @@ package br.com.sysacademia.model;
 
 import jakarta.persistence.*;
 
-@Entity
+//Entidade que representa um exercício em um treino
+@Entity /* Indica que esta classe é uma entidade do JPA */
 public class TreinoExercicio {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //Atributos do exercício no treino
+    @Id /* Identificador único do exercício no treino */
+    @GeneratedValue(strategy = GenerationType.IDENTITY) /* Geração automática do ID */
     private Long id;
-    @ManyToOne
+    @ManyToOne  /* Relação muitos-para-um com a entidade Exercicio */
     private Exercicio exercicio;
     private int numRepeticoes;
     private int numSeries;
-    @ManyToOne
+    @ManyToOne  /* Relação muitos-para-um com a entidade Treino */
     private Treino treino;
 
+    //Construtores
     public TreinoExercicio() {}
     public TreinoExercicio(Exercicio exercicio, int numRepeticoes, int numSeries){
         this.exercicio = exercicio;
@@ -21,6 +24,7 @@ public class TreinoExercicio {
         this.numSeries = numSeries;
     }
 
+    //Getters e Setters
     public Exercicio getExercicio(){
         return exercicio;
     }
@@ -45,6 +49,7 @@ public class TreinoExercicio {
         this.treino = treino;
     }
 
+    //Método toString com polimorfismo
     @Override
     public String toString(){
         return exercicio.getNome() + " | séries: " + numSeries + " | repetições: " + numRepeticoes;

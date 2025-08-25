@@ -7,23 +7,28 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.AuthenticationSuccessHandler; // Importe
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler; 
 
-@Configuration
-@EnableWebSecurity
+//Configuração de segurança
+@Configuration      /* Indica que esta classe é uma configuração do Spring */
+@EnableWebSecurity  /* Habilita a segurança da web no aplicativo */
 public class SecurityConfig {
 
+    //Injeção de dependência do manipulador de sucesso de autenticação
     private final AuthenticationSuccessHandler authenticationSuccessHandler;
 
+    //Construtor
     public SecurityConfig(AuthenticationSuccessHandler authenticationSuccessHandler) {
         this.authenticationSuccessHandler = authenticationSuccessHandler;
     }
 
+    //Define um bean para o codificador de senhas
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
+    //Configura a cadeia de filtros de segurança
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http

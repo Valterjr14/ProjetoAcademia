@@ -1,23 +1,27 @@
 package br.com.sysacademia.model;
+
 import jakarta.persistence.*;
 
-//classe mãe
-
-@MappedSuperclass
+//Classe abstrata que representa um usuário do sistema
+@MappedSuperclass   /* Indica que esta classe é uma superclasse mapeada do JPA */
 public abstract class Usuario {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //Atributos comuns a todos os usuários
+    @Id /* Identificador único do usuário */
+    @GeneratedValue(strategy = GenerationType.IDENTITY) /* Geração automática do ID */
     protected Long id;
     protected String nome;
     protected String email;
     protected String senha;
 
+    //Construtores
     public Usuario() {}
     public Usuario(String nome, String email, String senha) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
     }
+
+    //Getters e Setters
     public Long getId() { return id; }
     public String getNome() {
         return nome;
@@ -37,6 +41,8 @@ public abstract class Usuario {
     public void setSenha(String senha) {
         this.senha = senha;
     }   
+
+    //Método toString com polimorfismo
     @Override
     public String toString() {
         return "Usuario{" +

@@ -1,23 +1,25 @@
 package br.com.sysacademia.model;
-import java.math.BigDecimal;
 
+import java.math.BigDecimal;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Column;
 
-@Entity
+// Entidade que representa um plano
+@Entity /* Indica que esta classe é uma entidade do JPA */
 public class Plano {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    // Atributos do plano
+    @Id /* Identificador único do plano */
+    @GeneratedValue(strategy = GenerationType.IDENTITY) /* Geração automática do ID */
     private Long id;
-
     private String nomePlano;
-    @Column(name = "valor")
+    @Column(name = "valor") /* Valor do plano */
     private BigDecimal valor;
     private int duracaoMeses;
 
+    //Construtores
     public Plano(){}
     public Plano(String nomePlano, BigDecimal valor, int duracaoMeses){
         this.nomePlano = nomePlano;
@@ -25,6 +27,7 @@ public class Plano {
         this.duracaoMeses = duracaoMeses;
     }
 
+    //Getters e Setters
     public Long getId() {return id;}
     public String getNomePlano(){
         return nomePlano;
@@ -50,6 +53,7 @@ public class Plano {
         this.duracaoMeses = duracaoMeses;
     }
 
+    //Método toString com polimorfismo
     @Override
     public String toString(){
         return nomePlano + " (" + duracaoMeses + " meses) - R$ " + valor;

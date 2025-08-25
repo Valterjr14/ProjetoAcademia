@@ -3,20 +3,23 @@ import jakarta.persistence.*;
 import java.util.List;
 import java.util.ArrayList;
 
-@Entity
-@Table(name= "treinos")
+//Entidade que representa um treino
+@Entity /* Indica que esta classe é uma entidade do JPA */
+@Table(name= "treinos") /* Indica que esta classe está mapeada para a tabela "treinos" */
 public class Treino {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //Atributos do treino
+    @Id /* Identificador único do treino */
+    @GeneratedValue(strategy = GenerationType.IDENTITY) /* Geração automática do ID */
     private Long id;
     private String descricaoTreino, nivelDificuldade;
     private int duracaoMinutos;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "aluno_id")
+    @ManyToOne(fetch = FetchType.LAZY)  /* Relação muitos-para-um com a entidade Aluno */
+    @JoinColumn(name = "aluno_id")  /* Chave estrangeira que referencia o aluno */
     private Aluno aluno;
-    @OneToMany(mappedBy = "treino", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "treino", cascade = CascadeType.ALL, orphanRemoval = true)    /* Relação um-para-muitos com a entidade TreinoExercicio */
     private List<TreinoExercicio> listaExercicios;
 
+    //Construtores
     public Treino(){
         this.listaExercicios = new ArrayList<>();
     }
@@ -28,6 +31,7 @@ public class Treino {
         this.listaExercicios = new ArrayList<>();
     }
 
+    //Getters e Setters
     public Long getId(){ return id; }
     public String getDescricaoTreino(){
         return descricaoTreino;
@@ -61,10 +65,12 @@ public class Treino {
         this.aluno = aluno;
     }
 
+    //Método para exibir resumo do treino
     public String exibirResumoTreino(){
         return descricaoTreino + " (" + nivelDificuldade + ") - " + duracaoMinutos + " min";
     }
 
+    
     public List<TreinoExercicio> getListaExercicios(){
         return listaExercicios;
     }

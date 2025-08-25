@@ -1,23 +1,26 @@
 package br.com.sysacademia.model;
+
 import java.time.LocalDate;
 import jakarta.persistence.*;
-@Entity
-@Table(name="avaliacoes_fisicas")
 
+@Entity /* Indica que esta classe é uma entidade do JPA */
+@Table(name="avaliacoes_fisicas")   /* Mapeia a tabela "avaliacoes_fisicas" no banco de dados */
 public class AvaliacaoFisica {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    //Atributos da avaliação física
+    @Id /* Indica que este atributo é a chave primária da entidade */
+    @GeneratedValue(strategy = GenerationType.IDENTITY) /* Indica que o valor da chave primária será gerado automaticamente pelo banco de dados */
     private Long id;
     private LocalDate data;
     private double percentualGordura;
     private double altura;
     private double peso;
     private double imc;
-    @ManyToOne
-    @JoinColumn(name = "aluno_id")
+    @ManyToOne  /* Indica que uma avaliação física está associada a um aluno (Muitas avaliações para um Aluno) */
+    @JoinColumn(name = "aluno_id")  /* Mapeia a coluna "aluno_id" na tabela "avaliacoes_fisicas" */
     private Aluno aluno;
 
-
+    //Construtores
     public AvaliacaoFisica(){ }
     public AvaliacaoFisica(LocalDate data, double peso, double percentualGordura, double altura, Aluno aluno){
         this.data = data;
@@ -28,6 +31,7 @@ public class AvaliacaoFisica {
         calcularIMC();
     }
 
+    //Método para calcular o IMC
     private void calcularIMC(){
         if (altura > 0) {
             imc = peso / (altura * altura);
@@ -36,6 +40,7 @@ public class AvaliacaoFisica {
         }
     }
 
+    //Getters e Setters
     public Long getId() {return id;}
     public LocalDate getData() {return data; }
     public double getPeso() {return peso; }
@@ -55,6 +60,8 @@ public class AvaliacaoFisica {
         this.altura = altura;
         calcularIMC();
     }
+
+    //Método para imprimir a avaliação
     public void imprimirAvaliacao() {
         System.out.println("Avaliação Física:");
         System.out.println("Data: " + data);
@@ -63,6 +70,8 @@ public class AvaliacaoFisica {
         System.out.println("IMC: " + String.format("%.2f", imc));
         System.out.println("Percentual de Gordura: " + percentualGordura + "%");
     }
+
+    //Método toString
     public String toString() {
         return "AvaliacaoFisica{" +
                 "id=" + id +

@@ -9,16 +9,18 @@ import br.com.sysacademia.service.PlanoService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 
-@Configuration
+//Configuração de inicialização de dados
+@Configuration  /* Anotação que indica que esta classe é uma configuração do Spring */
 public class DataInitializerConfig {
 
-    @Bean
+    //Inicializa o banco de dados com dados padrão
+    @Bean   /* Método que inicializa o banco de dados com dados padrão */
     CommandLineRunner initDatabase(ExercicioService exercicioService, PlanoRepository planoRepository) {
+        //Retorna um banco de exercícios pré-estabelecido
         return args -> {
     List<String> nomesExercicios = Arrays.asList(
         "Supino reto com barra",
@@ -143,9 +145,10 @@ public class DataInitializerConfig {
         "Suitcase carry"
     );
 
-
+            //Verifica se já existem exercícios cadastrados
             if (exercicioService.listarTodos().isEmpty()) {
                  System.out.println("Cadastrando exercícios iniciais...");
+                 // Cria uma lista de nomes de exercícios
                 for (String nome : nomesExercicios) {
                     exercicioService.salvar(new Exercicio(nome));
                 }
@@ -156,9 +159,9 @@ public class DataInitializerConfig {
 
             System.out.println("Verificando e cadastrando planos de matrícula...");
             if (planoRepository.count() == 0) {
-                Plano mensal = new Plano("Plano Mensal", new BigDecimal("150.00"), 1);
-                Plano trimestral = new Plano("Plano Trimestral", new BigDecimal("400.00"), 3);
-                Plano anual = new Plano("Plano Anual", new BigDecimal("1700.00"), 12);
+                Plano mensal = new Plano("Plano Mensal", new BigDecimal("150.00"), 1);          // Plano mensal
+                Plano trimestral = new Plano("Plano Trimestral", new BigDecimal("400.00"), 3);  // Plano trimestral
+                Plano anual = new Plano("Plano Anual", new BigDecimal("1700.00"), 12);        // Plano anual
 
                 planoRepository.saveAll(Arrays.asList(mensal, trimestral, anual));
                 System.out.println("Planos iniciais cadastrados.");
