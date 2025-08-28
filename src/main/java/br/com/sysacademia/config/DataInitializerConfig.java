@@ -2,10 +2,8 @@ package br.com.sysacademia.config;
 
 import br.com.sysacademia.model.Exercicio;
 import br.com.sysacademia.model.Plano;
-import br.com.sysacademia.repository.ExercicioRepository;
 import br.com.sysacademia.repository.PlanoRepository;
 import br.com.sysacademia.service.ExercicioService;
-import br.com.sysacademia.service.PlanoService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

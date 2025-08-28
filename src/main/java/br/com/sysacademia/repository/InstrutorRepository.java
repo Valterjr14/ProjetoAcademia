@@ -1,6 +1,5 @@
 package br.com.sysacademia.repository;
 
-import br.com.sysacademia.model.Aluno;
 import br.com.sysacademia.model.Instrutor;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;

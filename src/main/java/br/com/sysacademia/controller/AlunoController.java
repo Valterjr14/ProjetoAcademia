@@ -1,7 +1,6 @@
 package br.com.sysacademia.controller;
 
 import br.com.sysacademia.model.Aluno;
-import br.com.sysacademia.model.Plano;
 import br.com.sysacademia.service.AlunoService;
 import br.com.sysacademia.service.PlanoService;
 import org.springframework.stereotype.Controller;

@@ -2,7 +2,6 @@ package br.com.sysacademia.controller;
 
 import br.com.sysacademia.model.Exercicio;
 import br.com.sysacademia.model.Treino;
-import br.com.sysacademia.service.AlunoService;
 import br.com.sysacademia.service.ExercicioService;
 import br.com.sysacademia.service.TreinoService;
 import org.springframework.stereotype.Controller;
@@ -18,13 +17,11 @@ public class TreinoController {
 
     //Injeção de dependência dos serviços
     private final TreinoService treinoService;
-    private final AlunoService alunoService;
     private final ExercicioService exercicioService;
 
     //Construtor
-    public TreinoController(TreinoService treinoService, AlunoService alunoService, ExercicioService exercicioService) {
+    public TreinoController(TreinoService treinoService, ExercicioService exercicioService) {
         this.treinoService = treinoService;
-        this.alunoService = alunoService;
         this.exercicioService = exercicioService;
     }
 
