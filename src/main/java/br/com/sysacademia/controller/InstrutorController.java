@@ -6,9 +6,13 @@ import br.com.sysacademia.model.Instrutor;
 import br.com.sysacademia.service.AlunoService;
 import br.com.sysacademia.service.AvaliacaoFisicaService;
 import br.com.sysacademia.service.InstrutorService;
+
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
 import java.time.LocalDate;
 import java.util.List;
 
@@ -31,8 +35,10 @@ public class InstrutorController {
 
     //Painel do instrutor
     @GetMapping("/painel")
-    public String painelInstrutor(@RequestParam(name = "q", required = false) String query, Model model) {
-        instrutorService.buscarPorId(1L).ifPresent(instrutor -> {
+    public String painelInstrutor(Authentication authentication, Model model, @RequestParam(name = "q", required = false) String query) {
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        String email = userDetails.getUsername();
+        instrutorService.buscarPorEmail(email).ifPresent(instrutor -> {
             model.addAttribute("instrutor", instrutor);
         }); 
         //Busca por alunos
