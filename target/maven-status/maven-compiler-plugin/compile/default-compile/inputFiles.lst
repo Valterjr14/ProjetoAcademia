@@ -8,6 +8,7 @@
 /home/vjr14/VSCODE/SistemaAcademia/src/main/java/br/com/sysacademia/controller/InstrutorController.java
 /home/vjr14/VSCODE/SistemaAcademia/src/main/java/br/com/sysacademia/controller/PageController.java
 /home/vjr14/VSCODE/SistemaAcademia/src/main/java/br/com/sysacademia/controller/PlanoController.java
+/home/vjr14/VSCODE/SistemaAcademia/src/main/java/br/com/sysacademia/controller/RecepcionistaController.java
 /home/vjr14/VSCODE/SistemaAcademia/src/main/java/br/com/sysacademia/controller/TreinoController.java
 /home/vjr14/VSCODE/SistemaAcademia/src/main/java/br/com/sysacademia/model/Aluno.java
 /home/vjr14/VSCODE/SistemaAcademia/src/main/java/br/com/sysacademia/model/AvaliacaoFisica.java
@@ -15,6 +16,7 @@
 /home/vjr14/VSCODE/SistemaAcademia/src/main/java/br/com/sysacademia/model/Instrutor.java
 /home/vjr14/VSCODE/SistemaAcademia/src/main/java/br/com/sysacademia/model/Luta.java
 /home/vjr14/VSCODE/SistemaAcademia/src/main/java/br/com/sysacademia/model/Plano.java
+/home/vjr14/VSCODE/SistemaAcademia/src/main/java/br/com/sysacademia/model/Recepcionista.java
 /home/vjr14/VSCODE/SistemaAcademia/src/main/java/br/com/sysacademia/model/Treino.java
 /home/vjr14/VSCODE/SistemaAcademia/src/main/java/br/com/sysacademia/model/TreinoExercicio.java
 /home/vjr14/VSCODE/SistemaAcademia/src/main/java/br/com/sysacademia/model/Usuario.java
@@ -23,6 +25,7 @@
 /home/vjr14/VSCODE/SistemaAcademia/src/main/java/br/com/sysacademia/repository/ExercicioRepository.java
 /home/vjr14/VSCODE/SistemaAcademia/src/main/java/br/com/sysacademia/repository/InstrutorRepository.java
 /home/vjr14/VSCODE/SistemaAcademia/src/main/java/br/com/sysacademia/repository/PlanoRepository.java
+/home/vjr14/VSCODE/SistemaAcademia/src/main/java/br/com/sysacademia/repository/RecepcionistaRepository.java
 /home/vjr14/VSCODE/SistemaAcademia/src/main/java/br/com/sysacademia/repository/TreinoExercicioRepository.java
 /home/vjr14/VSCODE/SistemaAcademia/src/main/java/br/com/sysacademia/repository/TreinosRepository.java
 /home/vjr14/VSCODE/SistemaAcademia/src/main/java/br/com/sysacademia/service/AlunoService.java
@@ -31,4 +34,5 @@
 /home/vjr14/VSCODE/SistemaAcademia/src/main/java/br/com/sysacademia/service/ExercicioService.java
 /home/vjr14/VSCODE/SistemaAcademia/src/main/java/br/com/sysacademia/service/InstrutorService.java
 /home/vjr14/VSCODE/SistemaAcademia/src/main/java/br/com/sysacademia/service/PlanoService.java
+/home/vjr14/VSCODE/SistemaAcademia/src/main/java/br/com/sysacademia/service/RecepcionistaService.java
 /home/vjr14/VSCODE/SistemaAcademia/src/main/java/br/com/sysacademia/service/TreinoService.java

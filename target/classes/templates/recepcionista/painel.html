@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Painel do Recepcionista</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/painel.css">
+</head>
+<body>
+    <div class="panel-container">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h1>Painel do Recepcionista</h1>
+            <form th:action="@{/logout}" method="post">
+                <button type="submit" class="delete-button" style="background-color: #6c757d;">Sair</button>
+            </form>
+        </div>
+        <hr class="divider">
+        <h2>Gerenciamento</h2>
+        <ul class="styled-list">
+            <li><a th:href="@{/alunos/novo}">Cadastrar Novo Aluno</a></li>
+            <li><a th:href="@{/instrutores/novo}">Cadastrar Novo Instrutor</a></li>
+            </ul>
+    </div>
+</body>
+</html>

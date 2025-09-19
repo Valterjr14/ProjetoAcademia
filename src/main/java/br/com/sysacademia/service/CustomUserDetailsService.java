@@ -2,8 +2,10 @@ package br.com.sysacademia.service;
 
 import br.com.sysacademia.model.Aluno;
 import br.com.sysacademia.model.Instrutor;
+import br.com.sysacademia.model.Recepcionista;
 import br.com.sysacademia.repository.AlunoRepository;
 import br.com.sysacademia.repository.InstrutorRepository;
+import br.com.sysacademia.repository.RecepcionistaRepository;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -18,11 +20,13 @@ public class CustomUserDetailsService implements UserDetailsService {
     //Injeção de dependências
     private final AlunoRepository alunoRepository;
     private final InstrutorRepository instrutorRepository;
+    private final RecepcionistaRepository recepcionistaRepository;
 
     //Construtor
-    public CustomUserDetailsService(AlunoRepository alunoRepository, InstrutorRepository instrutorRepository) {
+    public CustomUserDetailsService(AlunoRepository alunoRepository, InstrutorRepository instrutorRepository, RecepcionistaRepository recepcionistaRepository) {
         this.alunoRepository = alunoRepository;
         this.instrutorRepository = instrutorRepository;
+        this.recepcionistaRepository = recepcionistaRepository;
     }
 
     //Método para carregar um usuário pelo email
@@ -40,6 +44,12 @@ public class CustomUserDetailsService implements UserDetailsService {
         if (alunoOpt.isPresent()) {
             Aluno aluno = alunoOpt.get();   /* Obtém o aluno encontrado */
             return new User(aluno.getEmail(), aluno.getSenha(), Collections.singletonList(() -> "ROLE_ALUNO")); /* Retorna os detalhes do aluno */
+        }
+
+        Optional<Recepcionista> recepcionistaOpt = recepcionistaRepository.findByEmail(email);
+        if (recepcionistaOpt.isPresent()) {
+            Recepcionista recepcionista = recepcionistaOpt.get();
+            return new User(recepcionista.getEmail(), recepcionista.getSenha(), Collections.singletonList(() -> "ROLE_RECEPCIONISTA"));     
         }
 
         throw new UsernameNotFoundException("Usuário não encontrado com o email: " + email);    /* Lança uma exceção se usuário não encontrado */

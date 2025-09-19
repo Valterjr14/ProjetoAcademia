@@ -33,20 +33,19 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests(authorize -> authorize
-                .requestMatchers("/css/**", "/login", "/alunos/novo", "/alunos/salvar", "/instrutores/novo", "/instrutores/salvar", "/sucesso.html").permitAll()
+                .requestMatchers("/css/**", "/login", "/sucesso.html").permitAll()
+                .requestMatchers("/alunos/novo", "/instrutores/novo", "/planos/**", "/exercicios/**").hasRole("RECEPCIONISTA")
+                .requestMatchers("/recepcionista/**").hasRole("RECEPCIONISTA")
+                .requestMatchers("/instrutores/**").hasRole("INSTRUTOR")
+                .requestMatchers("/alunos/**").hasAnyRole("ALUNO", "INSTRUTOR")
                 .anyRequest().authenticated()
             )
             .formLogin(form -> form
                 .loginPage("/login")
-                .loginProcessingUrl("/login")
                 .successHandler(authenticationSuccessHandler)
                 .permitAll()
             )
-            .logout(logout -> logout
-                .logoutUrl("/logout")
-                .logoutSuccessUrl("/login?logout")
-                .permitAll()
-            );
+            .logout(logout -> logout.permitAll());
         return http.build();
     }
 }

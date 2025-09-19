@@ -27,6 +27,9 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
             } else if ("ROLE_ALUNO".equals(auth.getAuthority())) {  /* Verifica se o usuário é um aluno */
                 response.sendRedirect("/alunos/painel");
                 return;
+            } else if ("ROLE_RECEPCIONISTA".equals(auth.getAuthority())) {  /* Verifica se o usuário é um recepcionista */
+                response.sendRedirect("/recepcionista/painel");
+                return;
             }
         }
 

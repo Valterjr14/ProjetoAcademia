@@ -2,8 +2,11 @@ package br.com.sysacademia.config;
 
 import br.com.sysacademia.model.Exercicio;
 import br.com.sysacademia.model.Plano;
+import br.com.sysacademia.model.Recepcionista;
 import br.com.sysacademia.repository.PlanoRepository;
+import br.com.sysacademia.repository.RecepcionistaRepository;
 import br.com.sysacademia.service.ExercicioService;
+import br.com.sysacademia.service.RecepcionistaService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,6 +17,15 @@ import java.util.List;
 //Configuração de inicialização de dados
 @Configuration  /* Anotação que indica que esta classe é uma configuração do Spring */
 public class DataInitializerConfig {
+
+    private final RecepcionistaService recepcionistaService;
+
+    private final RecepcionistaRepository recepcionistaRepository;
+
+    DataInitializerConfig(RecepcionistaRepository recepcionistaRepository, RecepcionistaService recepcionistaService) {
+        this.recepcionistaRepository = recepcionistaRepository;
+        this.recepcionistaService = recepcionistaService;
+    }
 
     //Inicializa o banco de dados com dados padrão
     @Bean   /* Método que inicializa o banco de dados com dados padrão */
@@ -165,6 +177,13 @@ public class DataInitializerConfig {
                 System.out.println("Planos iniciais cadastrados.");
             } else {
                 System.out.println("Planos de matrícula já existem. Carga inicial ignorada.");
+            }
+
+            if(recepcionistaRepository.findByEmail("recepcao@sysacademia.com").isEmpty()){
+                System.out.println("Cadstrando recepcionista padrão...");
+                Recepcionista recepcionista = new Recepcionista("Recepcionista Padrão", "recepcao@sysacademia.com", "recep123");
+                recepcionistaService.salvar(recepcionista);
+                System.out.println("Recepcionista cadastrado.");
             }
         };
     }
