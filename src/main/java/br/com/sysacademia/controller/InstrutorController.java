@@ -95,6 +95,6 @@ public class InstrutorController {
     @PostMapping("/salvar")
     public String salvarInstrutor(@ModelAttribute Instrutor instrutor) {
         instrutorService.salvar(instrutor);
-        return "redirect:/login.html";
+        return "redirect:/sucesso";
     }
 }

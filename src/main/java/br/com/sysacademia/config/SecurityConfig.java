@@ -29,23 +29,27 @@ public class SecurityConfig {
     }
 
     //Configura a cadeia de filtros de segurança
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-            .authorizeHttpRequests(authorize -> authorize
-                .requestMatchers("/css/**", "/login", "/sucesso.html").permitAll()
-                .requestMatchers("/alunos/novo", "/instrutores/novo", "/planos/**", "/exercicios/**").hasRole("RECEPCIONISTA")
-                .requestMatchers("/recepcionista/**").hasRole("RECEPCIONISTA")
-                .requestMatchers("/instrutores/**").hasRole("INSTRUTOR")
-                .requestMatchers("/alunos/**").hasAnyRole("ALUNO", "INSTRUTOR")
-                .anyRequest().authenticated()
-            )
-            .formLogin(form -> form
-                .loginPage("/login")
-                .successHandler(authenticationSuccessHandler)
-                .permitAll()
-            )
-            .logout(logout -> logout.permitAll());
-        return http.build();
-    }
+@Bean
+public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    http
+        .authorizeHttpRequests(authorize -> authorize
+            // Rotas públicas que não exigem login
+            .requestMatchers("/css/**", "/login", "/sucesso.html", "/alunos/novo", "/alunos/salvar", "/instrutores/novo", "/instrutores/salvar").permitAll()
+            
+            // Rotas protegidas por papel
+            .requestMatchers("/recepcionista/**").hasRole("RECEPCIONISTA")
+            .requestMatchers("/instrutores/**").hasRole("INSTRUTOR")
+            .requestMatchers("/alunos/**").hasAnyRole("ALUNO", "INSTRUTOR") // Alunos e Instrutores podem ver detalhes de alunos
+            
+            // Qualquer outra requisição precisa de autenticação
+            .anyRequest().authenticated()
+        )
+        .formLogin(form -> form
+            .loginPage("/login")
+            .successHandler(authenticationSuccessHandler)
+            .permitAll()
+        )
+        .logout(logout -> logout.permitAll());
+    return http.build();
+}
 }
