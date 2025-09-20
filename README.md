@@ -1,5 +1,5 @@
 # SistemaAcademia
-SISTENA DE GESTÃO PARA ACADEMIAS
+SISTEMA DE GESTÃO PARA ACADEMIAS
 
 Este é um sistema web desenvolvido como projeto final da disciplina de Programação Orientada a Objetos, voltado para a gestão de academias (com algumas mudanças feitas).
 A aplicação permite gerenciar alunos, instrutores, treinos, avaliações físicas e planos de matrícula, com áreas separadas para instrutores e alunos e recepcionista.
