@@ -17,6 +17,7 @@ Usuarios Padrão
 Ao iniciar a aplicação pela primeira vez, um usuário recepcionista padrão será criado para que você possa acessar o sistema e cadastrar alunos e instrutores.
 
 • Email: recepcao@sysacademia.com
+
 • Senha: recep123
 
 Estrutura do Projeto
