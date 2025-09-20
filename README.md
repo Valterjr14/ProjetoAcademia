@@ -4,6 +4,7 @@ Sistema de Gestão para Academias
 Este é um sistema web desenvolvido como projeto final da disciplina de Programação Orientada a Objetos, voltado para a gestão de academias (com algumas mudanças feitas).
 A aplicação permite gerenciar alunos, instrutores, treinos, avaliações físicas e planos de matrícula, com áreas separadas para instrutores e alunos e recepcionista.
 
+
 Pré requisitos
 
 Para rodar o projeto, é necessário ter as seguintes ferramentas instaladas em seu ambiente de desenvolvimento.
@@ -14,6 +15,7 @@ Para rodar o projeto, é necessário ter as seguintes ferramentas instaladas em 
 
 • PostgreSQL
 
+
 Usuarios Padrão
 
 Ao iniciar a aplicação pela primeira vez, um usuário recepcionista padrão será criado para que você possa acessar o sistema e cadastrar alunos e instrutores.
@@ -21,6 +23,7 @@ Ao iniciar a aplicação pela primeira vez, um usuário recepcionista padrão se
 • Email: recepcao@sysacademia.com
 
 • Senha: recep123
+
 
 Estrutura do Projeto
 
