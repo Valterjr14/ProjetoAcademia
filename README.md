@@ -16,6 +16,11 @@ Para rodar o projeto, é necessário ter as seguintes ferramentas instaladas em 
 • PostgreSQL
 
 
+Acessando aplicação
+
+Após iniciar a aplicação, você pode acessá-la em seu navegador através do seguinte endereço: http://localhost:8080
+
+
 Usuarios Padrão
 
 Ao iniciar a aplicação pela primeira vez, um usuário recepcionista padrão será criado para que você possa acessar o sistema e cadastrar alunos e instrutores.
