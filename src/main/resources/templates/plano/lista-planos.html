@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerenciar Planos</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/painel.css">
+</head>
+<body>
+    <div class="panel-container">
+        <h1>Gerenciar Planos</h1>
+        <a th:href="@{/planos/novo}" class="action-link">+ Adicionar Novo Plano</a>
+        
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Nome do Plano</th>
+                    <th>Valor (R$)</th>
+                    <th>Duração (Meses)</th>
+                    <th class="actions">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="plano : ${planos}">
+                    <td th:text="${plano.nomePlano}">Plano Básico</td>
+                    <td th:text="${#numbers.formatDecimal(plano.valor, 1, 2)}">100,00</td>
+                    <td th:text="${plano.duracaoMeses}">1</td>
+                    <td class="actions">
+                        <a class="manage-button" th:href="@{/planos/editar/{id}(id=${plano.id})}">Editar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr class="divider">
+        <a th:href="@{/recepcionista/painel}" class="register-link">Voltar ao Painel</a>
+    </div>
+</body>
+</html>

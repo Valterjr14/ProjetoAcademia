@@ -38,8 +38,9 @@ public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Excepti
             
             // Rotas protegidas por papel
             .requestMatchers("/recepcionista/**").hasRole("RECEPCIONISTA")
+            .requestMatchers("/planos/**").hasRole("RECEPCIONISTA")
             .requestMatchers("/instrutores/**").hasRole("INSTRUTOR")
-            .requestMatchers("/alunos/**").hasAnyRole("ALUNO", "INSTRUTOR") // Alunos e Instrutores podem ver detalhes de alunos
+            .requestMatchers("/alunos/**").hasAnyRole("ALUNO", "INSTRUTOR", "RECEPCIONISTA") // Alunos e Instrutores podem ver detalhes de alunos
             
             // Qualquer outra requisição precisa de autenticação
             .anyRequest().authenticated()

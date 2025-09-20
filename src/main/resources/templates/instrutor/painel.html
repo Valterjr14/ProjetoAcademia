@@ -35,10 +35,7 @@
                     <td th:text="${aluno.nome}">Nome Aluno</td>
                     <td th:text="${aluno.matricula}">M001</td>
                     <td class="actions">
-                        <a th:href="@{/instrutores/gerenciar-aluno/{id}(id=${aluno.id})}">Gerenciar</a>
-                        <form th:action="@{/alunos/{id}/deletar(id=${aluno.id})}" method="post" style="display:inline; margin-left: 10px;">
-                            <button type="submit" class="delete-button" onclick="return confirm('Tem certeza que deseja excluir este aluno?');">Deletar</button>
-                        </form>
+                        <a class ="manage-button" th:href="@{/instrutores/gerenciar-aluno/{id}(id=${aluno.id})}">Gerenciar</a>
                     </td>
                 </tr>
             </tbody>

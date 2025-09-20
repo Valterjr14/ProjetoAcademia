@@ -22,9 +22,26 @@ public class AlunoService {
 
     //Método para salvar um aluno
     public Aluno salvarAluno(Aluno alu){
-        alu.setSenha(passwordEncoder.encode(alu.getSenha()));   //Criptografa a senha do aluno
-        System.out.println("Salvando aluno: " + alu.getNome()); //Exibe o nome do aluno que está sendo salvo
-        return repository.save(alu);    //Salva o aluno no repositório
+        if(alu.getId() != null && repository.existsById(alu.getId())){
+            Aluno alunoExistente = repository.findById(alu.getId()).get();
+
+            alunoExistente.setNome(alu.getNome());
+            alunoExistente.setEmail(alu.getEmail());
+            alunoExistente.setMatricula(alu.getMatricula());
+            alunoExistente.setCpf(alu.getCpf());
+            alunoExistente.setPlano(alu.getPlano());
+
+            if(alu.getSenha() != null && !alu.getSenha().isEmpty()){
+                alunoExistente.setSenha(passwordEncoder.encode(alu.getSenha()));
+            }
+
+            System.out.println("Atualizando aluno: " + alunoExistente.getNome());
+            return repository.save(alunoExistente);
+        } else {
+            alu.setSenha(passwordEncoder.encode(alu.getSenha()));   //Criptografa a senha do aluno
+            System.out.println("Salvando aluno: " + alu.getNome()); //Exibe o nome do aluno que está sendo salvo
+            return repository.save(alu);    //Salva o aluno no repositório
+        }
     }
 
     //Método para listar todos os alunos

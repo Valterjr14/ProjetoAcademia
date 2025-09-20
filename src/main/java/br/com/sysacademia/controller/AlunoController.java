@@ -36,6 +36,9 @@ public class AlunoController {
     @PostMapping("/salvar") /* Mapeia a requisição POST para /alunos/salvar */
     public String salvarAluno(@ModelAttribute Aluno aluno) {
         service.salvarAluno(aluno);
+        if(aluno.getId() != null){
+            return "redirect:/recepcionista/alunos";
+        }
         return "redirect:/sucesso";
     }
 
@@ -46,6 +49,14 @@ public class AlunoController {
         return "aluno/lista-alunos";
     }
 
+    @GetMapping("/editar/{id}")
+    public String editarAlunoForm(@PathVariable Long id, Model model){
+        service.buscarPorId(id).ifPresent(aluno -> {
+            model.addAttribute("aluno", aluno);
+            model.addAttribute("todosOsPlanos", planoService.listarPlanos());
+        });
+        return "aluno/cadastro-aluno";
+    }
     //Exibe os detalhes de um aluno
     @GetMapping("/{id}")    /* Mapeia a requisição GET para /alunos/{id} */
     public String detalhesAluno(@PathVariable Long id, Model model) {

@@ -1,7 +1,6 @@
 package br.com.sysacademia.config;
 
 import br.com.sysacademia.model.Exercicio;
-import br.com.sysacademia.model.Plano;
 import br.com.sysacademia.model.Recepcionista;
 import br.com.sysacademia.repository.PlanoRepository;
 import br.com.sysacademia.repository.RecepcionistaRepository;
@@ -10,7 +9,6 @@ import br.com.sysacademia.service.RecepcionistaService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 
@@ -165,18 +163,6 @@ public class DataInitializerConfig {
                 System.out.println("Carga inicial de exercícios concluída.");
             } else {
                 System.out.println("Exercícios já cadastrados. Carga inicial ignorada.");
-            }
-
-            System.out.println("Verificando e cadastrando planos de matrícula...");
-            if (planoRepository.count() == 0) {
-                Plano mensal = new Plano("Plano Mensal", new BigDecimal("150.00"), 1);          // Plano mensal
-                Plano trimestral = new Plano("Plano Trimestral", new BigDecimal("400.00"), 3);  // Plano trimestral
-                Plano anual = new Plano("Plano Anual", new BigDecimal("1700.00"), 12);        // Plano anual
-
-                planoRepository.saveAll(Arrays.asList(mensal, trimestral, anual));
-                System.out.println("Planos iniciais cadastrados.");
-            } else {
-                System.out.println("Planos de matrícula já existem. Carga inicial ignorada.");
             }
 
             if(recepcionistaRepository.findByEmail("recepcao@sysacademia.com").isEmpty()){

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerenciar Alunos</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/painel.css">
+</head>
+<body>
+<div class="panel-container">
+    <h1>Gerenciar Alunos da Academia</h1>
+
+    <form th:action="@{/recepcionista/alunos}" method="get" style="margin-bottom: 20px; display: flex; gap: 10px;">
+        <input type="text" name="q" placeholder="Buscar aluno por nome..." th:value="${termoBusca}" style="flex-grow: 1; padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+        <button type="submit" style="padding: 10px 15px;">Buscar</button>
+    </form>
+
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Matrícula</th>
+                <th>Plano Atual</th>
+                <th class="actions">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="aluno : ${alunos}">
+                <td th:text="${aluno.nome}">Nome do Aluno</td>
+                <td th:text="${aluno.matricula}">M001</td>
+                <td th:text="${aluno.plano != null ? aluno.plano.nomePlano : 'Sem Plano'}">Plano</td>
+                <td class="actions">
+                    <a class="manage-button" th:href="@{/alunos/editar/{id}(id=${aluno.id})}">Editar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <hr class="divider">
+    <a th:href="@{/recepcionista/painel}" class="register-link">Voltar ao Painel</a>
+</div>
+</body>
+</html>

@@ -71,9 +71,26 @@
     font-size: 0.9rem;
 }
 
+.manage-button {
+    background-color: #2198cf;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-decoration: none;
+    display: inline-block;
+}
+
 .delete-button:hover {
     background-color: #c82333;
 }
+
+.manage-button:hover {
+    background-color: #2198cf;
+}
+
 
 .exercise-list-item {
     display: flex;
