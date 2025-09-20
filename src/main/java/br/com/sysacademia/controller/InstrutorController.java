@@ -35,7 +35,7 @@ public class InstrutorController {
 
     //Painel do instrutor
     @GetMapping("/painel")
-    public String painelInstrutor(Authentication authentication, Model model, @RequestParam(name = "q", required = false) String query) {
+    public String painelInstrutor(Authentication authentication, Model model, String query) {
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         String email = userDetails.getUsername();
         instrutorService.buscarPorEmail(email).ifPresent(instrutor -> {
