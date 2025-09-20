@@ -1,25 +1,23 @@
 # SistemaAcademia
 Sistema de Gestão para Academias
 
-Este é um sistema web desenvolvido como projeto final da disciplina de Programação Orientada a Objetos, voltado para a gestão de academias.
-A aplicação permite gerenciar alunos, instrutores, treinos, avaliações físicas e planos de matrícula, com áreas separadas para instrutores e alunos.
+Este é um sistema web desenvolvido como projeto final da disciplina de Programação Orientada a Objetos, voltado para a gestão de academias (com algumas mudanças feitas).
+A aplicação permite gerenciar alunos, instrutores, treinos, avaliações físicas e planos de matrícula, com áreas separadas para instrutores e alunos e recepcionista.
 
-Padrões Utilizados
+Pré requisitos
+Para rodar o projeto, é necessário ter as seguintes ferramentas instaladas em seu ambiente de desenvolvimento.
 
-O sistema foi estruturado seguindo o padrão MVC (Model-View-Controller):
+• Java Development Kit (JDK) 17 ou superior
 
-•    Model: representa os dados do sistema (aluno, instrutor, treino, etc.).
+• Apache Maven
 
-•    View: interface feita em Thymeleaf + HTML.
+• PostgreSQL
 
-•    Controller: faz a ponte entre a interface e a lógica de negócio.
+Usuarios Padrão
+Ao iniciar a aplicação pela primeira vez, um usuário recepcionista padrão será criado para que você possa acessar o sistema e cadastrar alunos e instrutores.
 
+• Email: recepcao@sysacademia.com
+• Senha: recep123
 
-Além disso, aplicamos os padrões Repository e Service:
-
-•    Repository: responsável por lidar com o banco de dados, centralizando as operações de CRUD e evitando a necessidade de escrever consultas SQL dentro do código da aplicação.
-
-•    Service: concentra a lógica de negócio, permitindo que os controllers fiquem mais organizados e cuidem apenas das requisições.
-
-
-Optamos por utilizar Repository e Service porque entendemos que esses padrões ajudam a manter o sistema mais claro e bem estruturado. Durante o desenvolvimento, percebemos que eles facilitam a divisão de responsabilidades e deixam o projeto mais limpo e até mais fácil de testar e manter.
+Estrutura do Projeto
+Por fim, o projeto segue a arquitetura MVC (Model-View-Controller) e utiliza os padrôes Repository e Service para uma melhor organização do código e separação de responsabilidades.
