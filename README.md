@@ -5,6 +5,11 @@ Este é um sistema web desenvolvido como projeto final da disciplina de Programa
 A aplicação permite gerenciar alunos, instrutores, treinos, avaliações físicas e planos de matrícula, com áreas separadas para instrutores, alunos e recepcionista.
 
 
+DEMONSTRAÇÃO ONLINE E ACESSO RÁPIDO
+
+É possivel acessar de forma rápida pelo seguinte link: https://projetoacademia-production.up.railway.app/
+
+
 PRÉ REQUISITOS
 
 Para rodar o projeto, é necessário ter as seguintes ferramentas instaladas em seu ambiente de desenvolvimento.
