@@ -1,16 +1,15 @@
-# SistemaAcademia
-SISTEMA DE GESTÃO PARA ACADEMIAS
+## 🏋️ SistemaAcademia
 
 Este é um sistema web desenvolvido como projeto final da disciplina de Programação Orientada a Objetos, voltado para a gestão de academias (com algumas mudanças feitas).
 A aplicação permite gerenciar alunos, instrutores, treinos, avaliações físicas e planos de matrícula, com áreas separadas para instrutores, alunos e recepcionista.
 
 
-DEMONSTRAÇÃO ONLINE E ACESSO RÁPIDO
+## 🚀 DEMONSTRAÇÃO ONLINE E ACESSO RÁPIDO
 
 É possivel acessar de forma rápida pelo seguinte link: https://projetoacademia-production.up.railway.app/
 
 
-PRÉ REQUISITOS
+## 🛠 PRÉ REQUISITOS e TECNOLOGIAS USADAS
 
 Para rodar o projeto, é necessário ter as seguintes ferramentas instaladas em seu ambiente de desenvolvimento.
 
@@ -20,13 +19,35 @@ Para rodar o projeto, é necessário ter as seguintes ferramentas instaladas em 
 
 • PostgreSQL
 
+TECNOLOGIAS USADAS
 
-ACESSANDO APLICAÇÃO
+- Java 17
 
-Após iniciar a aplicação, você pode acessá-la em seu navegador através do seguinte endereço: http://localhost:8080
+- Spring Boot
+
+- Thymeleaf
+
+- PostgreSQL
+
+- HTML5
+
+- CSS3
+
+- Railway
 
 
-USUARIOS PADRÃO
+## ⚙️ ACESSANDO APLICAÇÃO
+
+git clone https://github.com/Valterjr14/ProjetoAcademia.git 
+
+cd ProjetoAcademia 
+
+mvn spring-boot:run
+
+Após isso a aplicação começará a rodar localmente no seu dispositivo no seguinte endereço: http://localhost:8080
+
+
+## 🔐 USUARIOS PADRÃO
 
 Ao iniciar a aplicação pela primeira vez, um usuário recepcionista padrão será criado para que você possa acessar o sistema e cadastrar alunos e instrutores.
 
@@ -35,6 +56,6 @@ Ao iniciar a aplicação pela primeira vez, um usuário recepcionista padrão se
 • Senha: recep123
 
 
-ESTRUTURA DO PROJETO
+## 📁 ESTRUTURA DO PROJETO
 
-Por fim, o projeto segue a arquitetura MVC (Model-View-Controller) e utiliza os padrôes Repository e Service para uma melhor organização do código e separação de responsabilidades.
+Por fim, o projeto segue a arquitetura MVC (Model-View-Controller) e utiliza os padrões Repository e Service para uma melhor organização do código e separação de responsabilidades.
